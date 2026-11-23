@@ -19,6 +19,7 @@ const labels = {
 
 const reset = `<style id="otv-reset">
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{overflow-x:clip}
 body{margin:0;font:14px/1.5 system-ui,-apple-system,sans-serif}
 img{max-width:100%}
 [hidden]{display:none!important}
