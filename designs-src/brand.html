@@ -1,0 +1,562 @@
+<title>On the Verge Brand Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: an editorial field guide. A sticky chapter rail on desktop, one column on phones; each chapter opens with a large Cinzel numeral because the guide is read in order. */
+:root{
+  --navy:#13303E; --ink:#0B1F29; --teal:#1E4C63; --gold:#BC9045; --gold-lt:#D9B465; --gold-deep:#8A6428; --glow:#F1CD79; --ivory:#F6F3EC; --mist:#E8EEF0;
+  --bg:#FBFCFC; --surface:#FFFFFF; --surface-2:#F1F5F6; --fg:#13303E; --fg-soft:#3E5866; --fg-mute:#6A808B; --line:#D7E1E4; --accent-text:#8A6428; --accent-rule:#BC9045;
+  --display:"Cinzel","Trajan Pro",Georgia,serif; --serif:"Cormorant Garamond","Cormorant",Garamond,Georgia,serif; --sans:"Jost","Futura","Avenir Next",system-ui,sans-serif; --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --logo:url(assets/otv-logo.png); --mark:url(assets/otv-mark.png);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B1F29; --surface:#11293A; --surface-2:#0F2533; --fg:#F1EEE6; --fg-soft:#C3CDD1; --fg-mute:#8DA0A9; --line:#24414F; --accent-text:#D9B465; --accent-rule:#BC9045;
+  --logo:url(assets/otv-logo-reverse.png); --mark:url(assets/otv-mark-reverse.png); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0B1F29; --surface:#11293A; --surface-2:#0F2533; --fg:#F1EEE6; --fg-soft:#C3CDD1; --fg-mute:#8DA0A9; --line:#24414F; --accent-text:#D9B465; --accent-rule:#BC9045;
+  --logo:url(assets/otv-logo-reverse.png); --mark:url(assets/otv-mark-reverse.png); color-scheme:dark }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:1240px;margin:0 auto}
+.label{font-family:var(--sans);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--accent-text)}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+/* cover */
+.cover{background:var(--surface);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.cover .inner{display:grid;gap:2.5rem;padding-block:clamp(2.5rem,7vw,6rem)}
+.cover-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.cover-logo{width:min(560px,100%);aspect-ratio:1000/624;background:var(--logo) center/contain no-repeat;max-width:100%}
+.cover h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.01em}
+.cover h1 em{color:var(--accent-text)}
+.cover-grid{display:grid;gap:2rem;align-items:end}
+.cover-meta{display:grid;gap:.4rem;color:var(--fg-soft);font-size:.95rem}
+.cover-meta b{font-weight:500;color:var(--fg)}
+.arc{position:absolute;right:-8%;top:-30%;width:70%;height:160%;pointer-events:none;opacity:.55}
+.arc path{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:1400;stroke-dashoffset:0;animation:draw 2.6s ease-out both}
+@keyframes draw{from{stroke-dashoffset:1400}to{stroke-dashoffset:0}}
+@media (min-width:860px){.cover-grid{grid-template-columns:1.2fr 1fr}}
+
+/* shell */
+.shell{display:grid;gap:0}
+.rail{display:none}
+@media (min-width:1040px){
+  .shell{grid-template-columns:220px 1fr;gap:4rem}
+  .rail{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 2rem);align-self:start;padding-top:4rem}
+  .rail ol{list-style:none;margin:0;padding:0;display:grid;gap:.15rem;border-left:1px solid var(--line)}
+  .rail a{display:block;text-decoration:none;padding:.35rem 0 .35rem 1rem;margin-left:-1px;border-left:1px solid transparent;color:var(--fg-mute);font-size:.9rem;transition:color .2s,border-color .2s}
+  .rail a:hover,.rail a.on{color:var(--fg);border-left-color:var(--gold)}
+}
+.chapnav{display:flex;gap:.5rem;overflow-x:auto;padding-block:1rem;border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;scrollbar-width:none}
+.chapnav::-webkit-scrollbar{display:none}
+.chapnav a{flex:0 0 auto;text-decoration:none;font-size:.8rem;letter-spacing:.08em;padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;color:var(--fg-soft)}
+@media (min-width:1040px){.chapnav{display:none}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+
+section.ch{padding-block:clamp(3rem,7vw,5.5rem);border-bottom:1px solid var(--line);scroll-margin-top:4rem;min-width:0}
+section.ch:last-child{border-bottom:0}
+.ch-head{display:grid;gap:.9rem;margin-bottom:clamp(2rem,4vw,3rem);max-width:720px}
+.ch-num{font-family:var(--display);font-size:.95rem;color:var(--accent-text);letter-spacing:.2em}
+.ch h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.05}
+.lede{font-size:1.1rem;color:var(--fg-soft);max-width:64ch}
+.body-copy{color:var(--fg-soft);max-width:64ch}
+h3{font-family:var(--sans);font-weight:500;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fg)}
+
+/* idea */
+.idea{display:grid;gap:2rem}
+.idea-art{background:var(--surface);border:1px solid var(--line);aspect-ratio:4/3;max-width:100%;position:relative;display:grid;place-items:center}
+.idea-art .m{width:62%;aspect-ratio:520/364;background:var(--mark) center/contain no-repeat}
+.idea-list{display:grid;gap:1.6rem;align-content:center}
+.idea-item{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;align-items:start}
+.idea-item svg{width:2.6rem;height:2.6rem}
+.idea-item h4{margin:0 0 .25rem;font-family:var(--serif);font-size:1.45rem;font-weight:500}
+.idea-item p{color:var(--fg-soft)}
+@media (min-width:820px){.idea{grid-template-columns:1fr 1fr;gap:3.5rem}}
+.verse{margin-top:2.5rem;padding:1.6rem 0 0;border-top:1px solid var(--line);font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2.6vw,1.8rem);line-height:1.35;max-width:46ch}
+.verse cite{display:block;margin-top:.6rem;font-family:var(--sans);font-style:normal;font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-text)}
+
+/* logo */
+.logo-grid{display:grid;gap:1rem}
+.plate{border:1px solid var(--line);display:grid;grid-template-rows:1fr auto;min-height:260px}
+.plate .art{display:grid;place-items:center;padding:2rem}
+.plate .cap{border-top:1px solid var(--line);padding:.8rem 1rem;display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;color:var(--fg-soft);flex-wrap:wrap}
+.plate .cap b{font-weight:500;color:var(--fg)}
+.p-light{background:#FFFFFF}
+.p-navy{background:#13303E}
+.p-ivory{background:#F6F3EC}
+.img-full{width:100%;max-width:420px;aspect-ratio:1000/624;background:url(assets/otv-logo.png) center/contain no-repeat}
+.img-full.rev{background-image:url(assets/otv-logo-reverse.png)}
+.img-mark{width:46%;max-width:200px;aspect-ratio:520/364;background:url(assets/otv-mark.png) center/contain no-repeat}
+.img-mark.rev{background-image:url(assets/otv-mark-reverse.png)}
+.p-light .cap,.p-ivory .cap{color:#3E5866;border-color:#E1E7E9}.p-light .cap b,.p-ivory .cap b{color:#13303E}
+.p-navy .cap{color:#C3CDD1;border-color:#24414F}.p-navy .cap b{color:#F6F3EC}
+@media (min-width:760px){.logo-grid{grid-template-columns:repeat(6,1fr)}.logo-grid .plate:nth-child(1){grid-column:span 4}.logo-grid .plate:nth-child(2){grid-column:span 2}.logo-grid .plate:nth-child(3){grid-column:span 3}.logo-grid .plate:nth-child(4){grid-column:span 3}}
+
+.rules{display:grid;gap:2rem;margin-top:3rem}
+@media (min-width:820px){.rules{grid-template-columns:1fr 1fr}}
+.space-demo{background:#fff;border:1px solid var(--line);padding:clamp(1rem,3vw,2rem);display:grid;place-items:center}
+.space-box{position:relative;padding:clamp(18px,4vw,36px);outline:1px dashed #BC9045;outline-offset:0}
+.space-box .img-full{width:min(300px,60vw)}
+.space-box .x{position:absolute;width:clamp(18px,4vw,36px);height:clamp(18px,4vw,36px);display:grid;place-items:center;font-family:var(--display);font-size:.8rem;color:#8A6428;background:rgba(188,144,69,.12)}
+.space-box .x.t{top:0;left:50%;transform:translateX(-50%)}.space-box .x.b{bottom:0;left:50%;transform:translateX(-50%)}
+.space-box .x.l{left:0;top:50%;transform:translateY(-50%)}.space-box .x.r{right:0;top:50%;transform:translateY(-50%)}
+.rule-list{display:grid;gap:1rem;align-content:start}
+.rule-list div{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);min-width:0}
+.rule-list dt,.rule-list .k{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-mute);padding-top:.2rem}
+.rule-list .v{color:var(--fg-soft)}
+.rule-list .v b{color:var(--fg);font-weight:500}
+
+.donts{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);margin-top:3rem}
+@media (min-width:820px){.donts{grid-template-columns:repeat(4,1fr)}}
+.dont{border:1px solid var(--line);background:var(--surface)}
+.dont .art{aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden;position:relative;background:#fff}
+.dont .art .img-full{width:72%}
+.dont .cap{padding:.7rem .9rem;font-size:.85rem;color:var(--fg-soft);display:flex;gap:.5rem;align-items:flex-start}
+.dont .cap svg{flex:0 0 auto;margin-top:.2rem}
+.d1 .img-full{transform:scaleX(1.45) scaleY(.8)}
+.d2 .img-full{filter:hue-rotate(150deg) saturate(1.6)}
+.d3 .art{background:repeating-linear-gradient(45deg,#C4553A 0 14px,#E9A23B 14px 28px,#4A1F4F 28px 42px)}
+.d4 .img-full{transform:rotate(-12deg);filter:drop-shadow(6px 8px 6px rgba(0,0,0,.55))}
+
+/* color */
+.palette{display:grid;gap:1rem}
+@media (min-width:700px){.palette{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.palette{grid-template-columns:repeat(4,1fr)}}
+.sw{border:1px solid var(--line);background:var(--surface);display:grid;grid-template-rows:auto 1fr}
+.sw .chip{height:150px;position:relative;display:flex;align-items:flex-end;padding:.9rem 1rem}
+.sw .chip span{font-family:var(--serif);font-size:1.5rem;font-weight:500}
+.sw .meta{padding:1rem;display:grid;gap:.55rem;font-size:.88rem;color:var(--fg-soft)}
+.sw .row{display:flex;justify-content:space-between;gap:.5rem;align-items:center}
+.sw code{font-family:var(--mono);font-size:.82rem;color:var(--fg);font-variant-numeric:tabular-nums}
+.copy{font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:transparent;color:var(--fg-soft);padding:.25rem .6rem;cursor:pointer;border-radius:2px}
+.copy:hover{border-color:var(--gold);color:var(--fg)}
+.sw .role{color:var(--fg);font-weight:500}
+.mix{margin-top:2.5rem;display:grid;gap:.8rem}
+.mixbar{display:flex;height:56px;border:1px solid var(--line);overflow:hidden}
+.mixbar div{display:flex;align-items:center;padding:0 .7rem;font-size:.75rem;letter-spacing:.12em;white-space:nowrap;overflow:hidden}
+.contrast{margin-top:2.5rem;overflow-x:auto}
+.contrast table{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem;font-variant-numeric:tabular-nums}
+.contrast th,.contrast td{text-align:left;padding:.7rem .8rem;border-bottom:1px solid var(--line)}
+.contrast th{font-weight:500;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-mute)}
+.pair{display:inline-flex;align-items:center;justify-content:center;width:3.2rem;height:2rem;font-family:var(--serif);font-size:1.1rem;font-weight:600;border:1px solid var(--line)}
+.ok{color:var(--teal)} .no{color:#B0472F}
+:root[data-theme="dark"] .ok{color:#7FC1D3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ok{color:#7FC1D3}}
+
+/* type */
+.faces{display:grid;gap:1rem}
+@media (min-width:900px){.faces{grid-template-columns:1.2fr 1fr 1fr}}
+.face{border:1px solid var(--line);background:var(--surface);padding:1.5rem;display:grid;gap:1rem;align-content:start;min-width:0}
+.face .big{font-size:clamp(3.4rem,7vw,5rem);line-height:1}
+.face .name{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.face .name strong{font-weight:500}
+.face p{color:var(--fg-soft);font-size:.95rem}
+.f-cinzel{font-family:var(--display)} .f-corm{font-family:var(--serif)} .f-jost{font-family:var(--sans)}
+.scale{margin-top:3rem;display:grid;border-top:1px solid var(--line)}
+.scale-row{display:grid;grid-template-columns:1fr;gap:.4rem;padding:1.2rem 0;border-bottom:1px solid var(--line);min-width:0}
+.scale-row .spec{font-size:.78rem;color:var(--fg-mute);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.scale-row .spec b{color:var(--fg);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;margin-right:.6rem}
+.scale-row .sample{overflow-wrap:anywhere;min-width:0}
+@media (min-width:760px){.scale-row{grid-template-columns:15rem 1fr;align-items:baseline;gap:2rem}}
+.s-d1{font-family:var(--serif);font-size:clamp(2.6rem,6vw,4.5rem);line-height:1.02;font-weight:400}
+.s-d2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500}
+.s-h3{font-family:var(--serif);font-size:1.6rem;line-height:1.2;font-weight:500;font-style:italic}
+.s-cap{font-family:var(--display);font-size:1.15rem;letter-spacing:.14em;font-weight:500}
+.s-label{font-family:var(--sans);font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--accent-text)}
+.s-body{font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--fg-soft);max-width:60ch}
+.s-small{font-family:var(--sans);font-size:.875rem;color:var(--fg-mute)}
+
+/* spacing */
+.space-scale{display:grid;gap:.6rem}
+.sp{display:grid;grid-template-columns:5.5rem 4rem 1fr;gap:1rem;align-items:center;font-variant-numeric:tabular-nums;font-size:.88rem;color:var(--fg-soft)}
+.sp code{font-family:var(--mono);color:var(--fg);font-size:.82rem}
+.sp i{display:block;height:14px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));max-width:100%}
+.layout-cols{display:grid;gap:2.5rem}
+@media (min-width:880px){.layout-cols{grid-template-columns:1fr 1fr}}
+
+/* components */
+.comp{display:grid;gap:1.5rem}
+.btn-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.btn{font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding:1rem 1.7rem;border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:#13303E;color:#F6F3EC}
+.btn-primary:hover{background:#1E4C63}
+.btn-gold{background:#BC9045;color:#0B1F29}
+.btn-gold:hover{background:#D9B465}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--fg)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--accent-text)}
+.btn-link{padding:.2rem 0;background:none;color:var(--fg);border-bottom:1px solid var(--gold)}
+:root[data-theme="dark"] .btn-primary{background:#F6F3EC;color:#13303E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-primary{background:#F6F3EC;color:#13303E}}
+.star-i{width:12px;height:12px}
+.field{display:grid;gap:.4rem;max-width:420px}
+.field label{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fg-mute)}
+.field input{font:inherit;padding:.85rem 1rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:0}
+.field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(188,144,69,.2)}
+.needed{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;letter-spacing:.1em;padding:.3rem .65rem;border:1px dashed var(--gold);color:var(--accent-text);background:rgba(188,144,69,.08)}
+.comp-note{font-size:.88rem;color:var(--fg-mute);max-width:60ch}
+
+/* imagery */
+.img-dir{display:grid;gap:1rem}
+@media (min-width:760px){.img-dir{grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto}.img-dir .ph:first-child{grid-row:span 2}}
+.ph{position:relative;min-height:220px;overflow:hidden;display:flex;align-items:flex-end;padding:1rem;color:#F6F3EC}
+.ph::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 80% 10%,rgba(241,205,121,.55),transparent 55%),linear-gradient(160deg,#1E4C63,#0B1F29)}
+.ph.warm::before{background:radial-gradient(110% 90% at 20% 0%,rgba(233,162,59,.7),transparent 60%),linear-gradient(200deg,#8A6428,#13303E)}
+.ph.soft::before{background:radial-gradient(100% 100% at 50% 0%,rgba(246,243,236,.5),transparent 60%),linear-gradient(180deg,#1E4C63,#13303E)}
+.ph svg.stars{position:absolute;inset:0;width:100%;height:100%;opacity:.18}
+.ph .cap{position:relative;display:grid;gap:.3rem;max-width:34ch}
+.ph .cap b{font-family:var(--serif);font-size:1.25rem;font-weight:500;font-style:italic}
+.ph .cap span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+.do-dont{display:grid;gap:2rem;margin-top:2.5rem}
+@media (min-width:760px){.do-dont{grid-template-columns:1fr 1fr}}
+.do-dont ul{margin:.8rem 0 0;padding:0;list-style:none;display:grid;gap:.6rem;color:var(--fg-soft)}
+.do-dont li{padding-left:1.4rem;position:relative}
+.do-dont .yes li::before{content:"";position:absolute;left:0;top:.62em;width:.55rem;height:.55rem;background:var(--gold);transform:rotate(45deg)}
+.do-dont .nope li::before{content:"";position:absolute;left:0;top:.82em;width:.7rem;height:1px;background:var(--fg-mute)}
+
+/* voice */
+.voice{display:grid;gap:2.5rem}
+@media (min-width:880px){.voice{grid-template-columns:1fr 1fr}}
+.traits{display:grid;gap:1.4rem}
+.trait h4{margin:0 0 .3rem;font-family:var(--serif);font-size:1.5rem;font-weight:500}
+.trait p{color:var(--fg-soft)}
+.say{border:1px solid var(--line);background:var(--surface)}
+.say div{padding:1.1rem 1.3rem;border-bottom:1px solid var(--line);display:grid;gap:.35rem}
+.say div:last-child{border-bottom:0}
+.say .tag{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--fg-mute)}
+.say .yes-line{font-family:var(--serif);font-size:1.3rem;line-height:1.35}
+.say .no-line{color:var(--fg-mute);text-decoration:line-through;text-decoration-color:rgba(176,71,47,.6)}
+.words{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.words span{font-size:.85rem;padding:.3rem .75rem;border:1px solid var(--line);color:var(--fg-soft)}
+.words.avoid span{text-decoration:line-through;color:var(--fg-mute)}
+
+/* tokens */
+.code{position:relative;background:#0B1F29;color:#E8EEF0;border:1px solid #24414F;overflow-x:auto}
+.code pre{margin:0;padding:1.4rem 1.4rem;font-family:var(--mono);font-size:.82rem;line-height:1.7}
+.code .c{color:#8DA0A9}.code .g{color:#D9B465}
+.code .copy{position:absolute;top:.8rem;right:.8rem;color:#C3CDD1;border-color:#24414F;background:#0B1F29}
+
+footer{padding-block:3rem;border-top:1px solid var(--line);color:var(--fg-mute);font-size:.85rem}
+footer .inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+</style>
+
+<header class="cover wrap">
+  <svg class="arc" viewBox="0 0 600 800" aria-hidden="true"><path d="M40 760 C 120 420, 360 160, 590 40"/><path d="M90 790 C 180 470, 400 220, 600 120" style="opacity:.5"/></svg>
+  <div class="inner">
+    <div class="cover-top">
+      <span class="label">Brand guide · Edition 1</span>
+      <span class="label" style="color:var(--fg-mute)">Prepared by Revvit · November 2026</span>
+    </div>
+    <div class="cover-grid">
+      <div class="cover-logo" role="img" aria-label="On the Verge Enrichment logo"></div>
+      <div style="display:grid;gap:1.2rem">
+        <h1>A ministry standing at the edge of <em>something new.</em></h1>
+        <div class="cover-meta">
+          <span><b>For</b> On the Verge Enrichment</span>
+          <span><b>Built from</b> the founder's logo, sampled pixel by pixel</span>
+          <span><b>Use it for</b> the website, social graphics, flyers and print</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="chapnav wrap" aria-label="Chapters">
+  <a href="#idea">The idea</a><a href="#logo">Logo</a><a href="#color">Color</a><a href="#type">Type</a><a href="#space">Spacing</a><a href="#ui">Buttons</a><a href="#imagery">Imagery</a><a href="#voice">Voice</a><a href="#tokens">Tokens</a>
+</nav>
+
+<div class="wrap">
+<div class="inner shell">
+  <aside class="rail" aria-label="Chapters">
+    <ol>
+      <li><a href="#idea">I. The idea</a></li><li><a href="#logo">II. Logo</a></li><li><a href="#color">III. Color</a></li><li><a href="#type">IV. Typography</a></li><li><a href="#space">V. Spacing &amp; grid</a></li><li><a href="#ui">VI. Buttons &amp; forms</a></li><li><a href="#imagery">VII. Imagery</a></li><li><a href="#voice">VIII. Voice</a></li><li><a href="#tokens">IX. Build tokens</a></li>
+    </ol>
+  </aside>
+  <main>
+
+  <section class="ch" id="idea">
+    <div class="ch-head">
+      <span class="ch-num">I</span>
+      <h2>The idea behind the mark</h2>
+      <p class="lede">The logo already tells a story. Every choice in this guide protects it: a monogram that holds steady, a path of gold that moves toward something, and a star that marks where it's going.</p>
+    </div>
+    <div class="idea">
+      <div class="idea-art"><div class="m" role="img" aria-label="OV monogram with gold swoosh and star"></div></div>
+      <div class="idea-list">
+        <div class="idea-item">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="none" stroke="var(--teal)" stroke-width="3"/></svg>
+          <div><h4>The monogram</h4><p>The O and V interlock in deep navy and teal. It reads as steady, trustworthy and rooted. This is the ministry's foundation.</p></div>
+        </div>
+        <div class="idea-item">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 34 C 12 18, 24 10, 38 6" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/></svg>
+          <div><h4>The gold path</h4><p>The swoosh sweeps up and to the right. It's movement, growth and forward motion: the journey from where you are to where you're called.</p></div>
+        </div>
+        <div class="idea-item">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z" fill="var(--gold)"/></svg>
+          <div><h4>The guiding star</h4><p>A four-point star sits just beyond reach. It's the breakthrough you're on the verge of. Use it as the brand's one small signature across the site.</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="verse">“See, I am doing a new thing! Now it springs up; do you not perceive it?”<cite>Isaiah 43:19 · suggested anchor verse</cite></p>
+  </section>
+
+  <section class="ch" id="logo">
+    <div class="ch-head">
+      <span class="ch-num">II</span>
+      <h2>Logo</h2>
+      <p class="lede">Two lockups and two color treatments. Use the full logo wherever there's room. Use the monogram alone as the favicon, social avatar and small marks.</p>
+    </div>
+    <div class="logo-grid">
+      <div class="plate p-light"><div class="art"><div class="img-full" role="img" aria-label="Primary full logo"></div></div><div class="cap"><span><b>Primary</b> · full color on white or ivory</span><span>Default</span></div></div>
+      <div class="plate p-navy"><div class="art"><div class="img-mark rev" role="img" aria-label="Monogram reversed"></div></div><div class="cap"><span><b>Monogram</b> · reversed</span><span>Avatar, favicon</span></div></div>
+      <div class="plate p-navy"><div class="art"><div class="img-full rev" role="img" aria-label="Reversed full logo"></div></div><div class="cap"><span><b>Reversed</b> · ivory letters, gold kept</span><span>Navy grounds</span></div></div>
+      <div class="plate p-ivory"><div class="art"><div class="img-mark" role="img" aria-label="Monogram full color"></div></div><div class="cap"><span><b>Monogram</b> · full color</span><span>Small spaces</span></div></div>
+    </div>
+
+    <div class="rules">
+      <div class="space-demo">
+        <div class="space-box"><span class="x t">✦</span><span class="x b">✦</span><span class="x l">✦</span><span class="x r">✦</span><div class="img-full" role="img" aria-label="Logo with clear space"></div></div>
+      </div>
+      <div class="rule-list">
+        <div><span class="k">Clear space</span><span class="v">Keep empty space around the logo equal to <b>the height of the star</b> on every side. Nothing else enters that zone.</span></div>
+        <div><span class="k">Minimum size</span><span class="v">Full logo <b>160px wide</b> on screen, <b>1.5 in</b> in print. Below that, switch to the monogram (minimum <b>32px</b>).</span></div>
+        <div><span class="k">Backgrounds</span><span class="v">White, ivory, mist or Verge Navy. On photos, place the logo over a calm area or a navy overlay at 60% or more.</span></div>
+        <div><span class="k">Files we'll need</span><span class="v">The original vector file (AI, EPS, SVG or PDF) if one exists. Today we're working from a JPEG. <span class="needed">✦ Needed from you: vector logo</span></span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3.5rem">Please don't</h3>
+    <div class="donts">
+      <div class="dont d1"><div class="art"><div class="img-full"></div></div><div class="cap"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1L11 11M11 1L1 11" stroke="#B0472F" stroke-width="1.6"/></svg>Stretch or squash it</div></div>
+      <div class="dont d2"><div class="art"><div class="img-full"></div></div><div class="cap"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1L11 11M11 1L1 11" stroke="#B0472F" stroke-width="1.6"/></svg>Recolor the navy or gold</div></div>
+      <div class="dont d3"><div class="art"><div class="img-full"></div></div><div class="cap"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1L11 11M11 1L1 11" stroke="#B0472F" stroke-width="1.6"/></svg>Set it on busy patterns</div></div>
+      <div class="dont d4"><div class="art"><div class="img-full"></div></div><div class="cap"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1L11 11M11 1L1 11" stroke="#B0472F" stroke-width="1.6"/></svg>Tilt it or add shadows</div></div>
+    </div>
+  </section>
+
+  <section class="ch" id="color">
+    <div class="ch-head">
+      <span class="ch-num">III</span>
+      <h2>Color</h2>
+      <p class="lede">Every value here was sampled from the logo itself. Navy carries the weight, gold is the light, and teal is the bridge between them.</p>
+    </div>
+    <div class="palette" id="palette"></div>
+    <div class="mix">
+      <h3>How much of each</h3>
+      <div class="mixbar" aria-label="Color proportions">
+        <div style="flex:40;background:#F6F3EC;color:#13303E">Ivory &amp; white 40%</div>
+        <div style="flex:35;background:#13303E;color:#F6F3EC">Navy 35%</div>
+        <div style="flex:13;background:#1E4C63;color:#F6F3EC">Teal 13%</div>
+        <div style="flex:12;background:#BC9045;color:#0B1F29">Gold 12%</div>
+      </div>
+      <p class="comp-note">Gold is precious because it's rare. Keep it to rules, the star, key buttons and a few words of emphasis.</p>
+    </div>
+    <div class="contrast">
+      <h3 style="margin-bottom:1rem">Readable pairings (WCAG)</h3>
+      <table>
+        <thead><tr><th>Pair</th><th>Text on ground</th><th>Ratio</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pair" style="background:#fff;color:#13303E">Aa</span></td><td>Navy on white</td><td>13.8 : 1</td><td class="ok">Everything</td></tr>
+          <tr><td><span class="pair" style="background:#13303E;color:#F6F3EC">Aa</span></td><td>Ivory on navy</td><td>12.5 : 1</td><td class="ok">Everything</td></tr>
+          <tr><td><span class="pair" style="background:#13303E;color:#D9B465">Aa</span></td><td>Gold Light on navy</td><td>7.0 : 1</td><td class="ok">Body text and labels</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:#8A6428">Aa</span></td><td>Gold Deep on white</td><td>5.3 : 1</td><td class="ok">Gold text on light pages</td></tr>
+          <tr><td><span class="pair" style="background:#13303E;color:#BC9045">Aa</span></td><td>Gold on navy</td><td>4.8 : 1</td><td class="ok">Headings and buttons</td></tr>
+          <tr><td><span class="pair" style="background:#fff;color:#BC9045">Aa</span></td><td>Gold on white</td><td>2.9 : 1</td><td class="no">Decoration only, never text</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ch" id="type">
+    <div class="ch-head">
+      <span class="ch-num">IV</span>
+      <h2>Typography</h2>
+      <p class="lede">The logo pairs flared Roman capitals with widely spaced caps. Three free Google typefaces carry that voice into every page.</p>
+    </div>
+    <div class="faces">
+      <div class="face">
+        <div class="name"><strong class="f-corm" style="font-size:1.3rem">Cormorant Garamond</strong><span class="label">Headlines</span></div>
+        <div class="big f-corm">Aa <em style="color:var(--accent-text)">Gg</em></div>
+        <p>Elegant, high-contrast serif with a beautiful italic. Use for headlines, quotes and scripture. Weights 400 to 600.</p>
+      </div>
+      <div class="face">
+        <div class="name"><strong class="f-cinzel">Cinzel</strong><span class="label">Display caps</span></div>
+        <div class="big f-cinzel">AV</div>
+        <p>Roman inscription capitals, the closest free match to “ON THE VERGE.” Use sparingly: event titles, short headers, numerals.</p>
+      </div>
+      <div class="face">
+        <div class="name"><strong class="f-jost">Jost</strong><span class="label">Body &amp; labels</span></div>
+        <div class="big f-jost" style="font-weight:300">Aa</div>
+        <p>Clean geometric sans that echoes “ENRICHMENT.” Use for body copy, buttons and spaced uppercase labels. Weights 300 to 600.</p>
+      </div>
+    </div>
+    <div class="scale">
+      <div class="scale-row"><span class="spec"><b>Display</b>Cormorant 400 · 72 / 74</span><span class="sample s-d1">You are on the verge.</span></div>
+      <div class="scale-row"><span class="spec"><b>Heading</b>Cormorant 500 · 48 / 52</span><span class="sample s-d2">The heart behind the ministry</span></div>
+      <div class="scale-row"><span class="spec"><b>Subhead</b>Cormorant italic 500 · 26 / 31</span><span class="sample s-h3">Rooted in the Word, ready for what's next</span></div>
+      <div class="scale-row"><span class="spec"><b>Caps</b>Cinzel 500 · 18 · +14% tracking</span><span class="sample s-cap">WOMEN'S BRUNCH · DECEMBER 13</span></div>
+      <div class="scale-row"><span class="spec"><b>Label</b>Jost 500 · 12.5 · +32% tracking</span><span class="sample s-label">A faith-rooted enrichment ministry</span></div>
+      <div class="scale-row"><span class="spec"><b>Body</b>Jost 400 · 17 / 28</span><span class="sample s-body">On the Verge Enrichment walks with women, families and young people through teaching, mentoring and community, so the next season finds you rooted, ready and whole.</span></div>
+      <div class="scale-row"><span class="spec"><b>Small</b>Jost 400 · 14 / 22</span><span class="sample s-small">Free to attend. Childcare available on request.</span></div>
+    </div>
+  </section>
+
+  <section class="ch" id="space">
+    <div class="ch-head">
+      <span class="ch-num">V</span>
+      <h2>Spacing &amp; grid</h2>
+      <p class="lede">Ministry pages should breathe. Everything sits on an 8-pixel rhythm, and sections get generous room so a visitor never feels rushed.</p>
+    </div>
+    <div class="layout-cols">
+      <div class="space-scale" id="spaces"></div>
+      <div class="rule-list">
+        <div><span class="k">Grid</span><span class="v"><b>12 columns</b> on desktop, <b>4</b> on phones. Content max width <b>1240px</b>, reading width about <b>65 characters</b>.</span></div>
+        <div><span class="k">Gutters</span><span class="v"><b>16px</b> side margins on phones, <b>32px</b> on tablets, <b>48px</b> on desktop.</span></div>
+        <div><span class="k">Sections</span><span class="v"><b>64px</b> top and bottom on phones, <b>120px</b> on desktop.</span></div>
+        <div><span class="k">Corners</span><span class="v">Square or nearly square (<b>0 to 2px</b>). Rounded pills only for small tags. It keeps the look dignified.</span></div>
+        <div><span class="k">Lines</span><span class="v"><b>1px</b> hairlines in mist or gold. Gold hairlines may extend from headings like the rules beside “ENRICHMENT.”</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="ui">
+    <div class="ch-head">
+      <span class="ch-num">VI</span>
+      <h2>Buttons &amp; forms</h2>
+      <p class="lede">One clear primary action per section. Buttons use spaced uppercase Jost so they feel like the logo's “ENRICHMENT” line.</p>
+    </div>
+    <div class="comp">
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#ui">Join the next gathering</a>
+        <a class="btn btn-gold" href="#ui"><svg class="star-i" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z" fill="currentColor"/></svg>Give</a>
+        <a class="btn btn-ghost" href="#ui">Meet KD</a>
+        <a class="btn btn-link" href="#ui">See all events</a>
+      </div>
+      <p class="comp-note">Primary (navy) for the main action. Gold only for Give or one standout moment per page. Outline for secondary. Text link for quiet actions.</p>
+      <div class="field"><label for="demo-email">Email address</label><input id="demo-email" type="email" placeholder="you@example.com"></div>
+      <div><span class="needed">✦ Needed from you: bio and portrait</span></div>
+      <p class="comp-note">The dashed gold tag marks anything we still need from you in the design drafts. It won't appear on the live site.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="imagery">
+    <div class="ch-head">
+      <span class="ch-num">VII</span>
+      <h2>Imagery</h2>
+      <p class="lede">Real faces from a real congregation. The church is wonderfully diverse, and the photos should look like it: every age, every shade, warm light, genuine moments.</p>
+    </div>
+    <div class="img-dir">
+      <div class="ph" style="min-height:360px"><svg class="stars" aria-hidden="true"><defs><pattern id="st" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 22 L31.5 28.5 L38 30 L31.5 31.5 L30 38 L28.5 31.5 L22 30 L28.5 28.5Z" fill="#F1CD79"/></pattern></defs><rect width="100%" height="100%" fill="url(#st)"/></svg><div class="cap"><span>Hero · photo needed</span><b>KD speaking or praying with a small group, warm natural light</b></div></div>
+      <div class="ph warm"><div class="cap"><span>Community</span><b>Women in a circle with Bibles and coffee</b></div></div>
+      <div class="ph soft"><div class="cap"><span>Youth &amp; family</span><b>Teens of different backgrounds laughing together</b></div></div>
+      <div class="ph"><div class="cap"><span>Portrait</span><b>KD, natural smile, navy or gold wardrobe</b></div></div>
+      <div class="ph warm"><div class="cap"><span>Gatherings</span><b>A full fellowship hall, every age and shade</b></div></div>
+    </div>
+    <div class="do-dont">
+      <div class="yes"><h3>Look for</h3><ul><li>Candid moments: laughter, prayer, hands holding Bibles and coffee cups</li><li>Warm, natural light and true skin tones on every complexion</li><li>Mixed ages and mixed backgrounds in the same frame</li><li>KD in the center of the work, not posed in front of it</li></ul></div>
+      <div class="nope"><h3>Avoid</h3><ul><li>Generic stock handshakes and staged boardroom smiles</li><li>Heavy filters that flatten or shift skin tones</li><li>Photo sets where everyone looks alike</li><li>Clip-art praying hands, doves and sunbursts</li></ul></div>
+    </div>
+    <p class="comp-note" style="margin-top:1.5rem">When a photo sits behind text, lay a Verge Navy overlay at 55 to 70% so headlines stay readable. <span class="needed">✦ Needed from you: 8 to 15 photos of real gatherings</span></p>
+  </section>
+
+  <section class="ch" id="voice">
+    <div class="ch-head">
+      <span class="ch-num">VIII</span>
+      <h2>Voice</h2>
+      <p class="lede">Write the way KD speaks to someone at the altar or over coffee: warm, sure and hopeful, with Scripture that lands instead of lectures.</p>
+    </div>
+    <div class="voice">
+      <div class="traits">
+        <div class="trait"><h4>Hopeful, not hype</h4><p>Breakthrough is near, and we say so with calm confidence, not exclamation points.</p></div>
+        <div class="trait"><h4>Personal, not preachy</h4><p>Speak to “you.” Short sentences. Real-life examples over church jargon.</p></div>
+        <div class="trait"><h4>Rooted, not religious-sounding</h4><p>Quote Scripture by book and verse, then say plainly what it means for Tuesday.</p></div>
+        <div>
+          <h3>Words we use</h3>
+          <div class="words"><span>verge</span><span>next season</span><span>rooted</span><span>ready</span><span>walk with</span><span>enrich</span><span>whole</span><span>together</span></div>
+          <h3 style="margin-top:1.4rem">Words we skip</h3>
+          <div class="words avoid"><span>synergy</span><span>unlock your potential</span><span>blessed and highly favored</span><span>life-changing!!!</span></div>
+        </div>
+      </div>
+      <div class="say">
+        <div><span class="tag">Instead of</span><span class="no-line">Register now for our life-changing transformational workshop!!!</span></div>
+        <div><span class="tag">Say</span><span class="yes-line">Save your seat for Saturday. Bring a friend and a notebook.</span></div>
+        <div><span class="tag">Instead of</span><span class="no-line">We provide holistic enrichment solutions for individuals.</span></div>
+        <div><span class="tag">Say</span><span class="yes-line">We walk with you, and we don't walk alone.</span></div>
+        <div><span class="tag">Instead of</span><span class="no-line">Click here to donate.</span></div>
+        <div><span class="tag">Say</span><span class="yes-line">Sow into what's next for a family in our community.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="tokens">
+    <div class="ch-head">
+      <span class="ch-num">IX</span>
+      <h2>Build tokens</h2>
+      <p class="lede">For the Next.js build. These variables keep the site, future pages and any designer who joins later on the same system.</p>
+    </div>
+    <div class="code"><button class="copy" type="button" data-copy-target="tok">Copy</button><pre id="tok"><span class="c">/* On the Verge Enrichment · brand tokens v1 */</span>
+:root {
+  <span class="c">/* color */</span>
+  --otv-navy: <span class="g">#13303E</span>;      --otv-ink: <span class="g">#0B1F29</span>;
+  --otv-teal: <span class="g">#1E4C63</span>;      --otv-gold: <span class="g">#BC9045</span>;
+  --otv-gold-light: <span class="g">#D9B465</span>; --otv-gold-deep: <span class="g">#8A6428</span>;
+  --otv-glow: <span class="g">#F1CD79</span>;      --otv-ivory: <span class="g">#F6F3EC</span>;
+  --otv-mist: <span class="g">#E8EEF0</span>;      --otv-white: <span class="g">#FFFFFF</span>;
+
+  <span class="c">/* type */</span>
+  --otv-font-display: "Cinzel", Georgia, serif;
+  --otv-font-serif: "Cormorant Garamond", Garamond, Georgia, serif;
+  --otv-font-sans: "Jost", "Avenir Next", system-ui, sans-serif;
+  --otv-tracking-label: 0.32em;  --otv-tracking-caps: 0.14em;
+
+  <span class="c">/* space (8px rhythm) */</span>
+  --otv-space-1: 4px;  --otv-space-2: 8px;   --otv-space-3: 16px;
+  --otv-space-4: 24px; --otv-space-5: 32px;  --otv-space-6: 48px;
+  --otv-space-7: 64px; --otv-space-8: 96px;  --otv-space-9: 120px;
+
+  --otv-radius: 2px;  --otv-max: 1240px;  --otv-measure: 65ch;
+}</pre></div>
+  </section>
+  </main>
+</div>
+</div>
+
+<footer class="wrap"><div class="inner"><span>On the Verge Enrichment · Brand guide edition 1</span><span>Prepared by Revvit for review. Colors sampled from the supplied logo.</span></div></footer>
+
+<script>
+const colors=[
+  {n:"Verge Navy",h:"#13303E",r:"Primary · text, headers, grounds",fg:"#F6F3EC"},
+  {n:"Harbor Teal",h:"#1E4C63",r:"Secondary · hovers, accents, overlays",fg:"#F6F3EC"},
+  {n:"Anointed Gold",h:"#BC9045",r:"Accent · star, rules, Give button",fg:"#0B1F29"},
+  {n:"Ivory",h:"#F6F3EC",r:"Light ground · warm paper tone",fg:"#13303E"},
+  {n:"Deep Ink",h:"#0B1F29",r:"Darkest navy · footers, dark mode",fg:"#F6F3EC"},
+  {n:"Gold Light",h:"#D9B465",r:"Gold text on navy · highlights",fg:"#0B1F29"},
+  {n:"Gold Deep",h:"#8A6428",r:"Gold text on light grounds",fg:"#F6F3EC"},
+  {n:"Mist",h:"#E8EEF0",r:"Cool neutral · section bands, lines",fg:"#13303E"}
+];
+const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)).join(", ");
+const pal=document.getElementById("palette");
+pal.innerHTML=colors.map(c=>`<div class="sw"><div class="chip" style="background:${c.h};color:${c.fg}"><span>${c.n}</span></div><div class="meta"><div class="role">${c.r}</div><div class="row"><code>HEX ${c.h}</code><button class="copy" type="button" data-copy="${c.h}">Copy</button></div><div class="row"><code>RGB ${rgb(c.h)}</code></div></div></div>`).join("");
+const sp=[["space-1",4],["space-2",8],["space-3",16],["space-4",24],["space-5",32],["space-6",48],["space-7",64],["space-8",96],["space-9",120]];
+document.getElementById("spaces").innerHTML=sp.map(([k,v])=>`<div class="sp"><code>${k}</code><span>${v}px</span><i style="width:${v*2.2}px"></i></div>`).join("");
+document.addEventListener("click",async e=>{
+  const b=e.target.closest(".copy"); if(!b) return;
+  const t=b.dataset.copy ?? document.getElementById(b.dataset.copyTarget).innerText;
+  const prev=b.textContent;
+  try{await navigator.clipboard.writeText(t);b.textContent="Copied"}catch(err){
+    const el=b.dataset.copyTarget?document.getElementById(b.dataset.copyTarget):b.previousElementSibling;
+    const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected";
+  }
+  setTimeout(()=>b.textContent=prev,1600);
+});
+const links=[...document.querySelectorAll(".rail a")];
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+en.target.id))}}),{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("section.ch").forEach(s=>io.observe(s));
+</script>

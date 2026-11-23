@@ -1,0 +1,585 @@
+<title>OTV Regal Edition</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: cathedral-quiet editorial on a committed navy night. Asymmetric two-column spreads, gold hairlines instead of boxes, one drawn arc as the signature. */
+:root{
+  --ink:#0B1F29;        /* Deep Ink, page ground */
+  --navy:#13303E;       /* Verge Navy, raised bands */
+  --teal:#1E4C63;       /* Harbor Teal, depth and gradients */
+  --gold:#BC9045;       /* Anointed Gold, rules and accents */
+  --gold-l:#D9B465;     /* Gold Light, readable gold text */
+  --glow:#F1CD79;       /* Gold Glow, highlights only */
+  --ivory:#F6F3EC;      /* Ivory, primary text */
+  --muted:#B9C3C6;      /* Mist, secondary text (navy-biased grey) */
+  --line:rgba(188,144,69,.38);
+  --line-soft:rgba(246,243,236,.12);
+  --f-display:"Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --f-caps:"Cinzel", "Trajan Pro", "Cormorant Garamond", Georgia, serif;
+  --f-body:"Jost", "Futura", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--ivory);font-family:var(--f-body);font-weight:300;font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1320px;margin-inline:auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:720px){.wrap{padding-left:max(40px, env(safe-area-inset-left,0px));padding-right:max(40px, env(safe-area-inset-right,0px))}}
+@media (min-width:1100px){.wrap{padding-left:max(64px, env(safe-area-inset-left,0px));padding-right:max(64px, env(safe-area-inset-right,0px))}}
+
+/* type */
+.caps{font-family:var(--f-caps);font-weight:500;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-l)}
+h1,h2,h3{font-family:var(--f-display);font-weight:300;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+h3{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:400}
+p{margin:0}
+.lede{font-size:clamp(1.08rem,1.6vw,1.25rem);color:var(--muted);max-width:36em}
+em.gilt,.gilt{font-style:italic;background:linear-gradient(100deg,var(--gold) 0%,var(--glow) 45%,var(--gold-l) 60%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* needed + photo tags */
+.need{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--gold);color:var(--gold-l);font-family:var(--f-body);font-weight:400;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.42em .95em .38em;border-radius:999px;line-height:1.3;background:rgba(11,31,41,.55);max-width:100%}
+.need::before{content:"";width:.62em;height:.62em;flex:none;background:var(--gold);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+.sample{display:inline-block;font-family:var(--f-body);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-bottom:1px dotted var(--muted);padding-bottom:1px}
+
+/* ribbon */
+.ribbon{background:#071820;color:var(--muted);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding-block:.55rem;border-bottom:1px solid var(--line-soft)}
+.ribbon .wrap{display:flex;justify-content:center;gap:.6em;flex-wrap:wrap}
+.ribbon b{color:var(--gold-l);font-weight:400}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(11,31,41,.86);backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand img{width:54px;height:auto}
+.brand span{font-family:var(--f-caps);font-size:.82rem;letter-spacing:.22em;color:var(--ivory);white-space:nowrap}
+.brand span small{display:block;font-family:var(--f-body);font-size:.58rem;letter-spacing:.5em;color:var(--gold-l);margin-top:.15rem}
+.nav{display:none}
+.nav a{text-decoration:none;font-family:var(--f-caps);font-size:.7rem;letter-spacing:.22em;color:var(--ivory);opacity:.82;padding:.4rem 0;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.nav a:hover{opacity:1}.nav a:hover::after{transform:scaleX(1)}
+.nav .give-link{border:1px solid var(--gold);padding:.55rem 1.1rem;color:var(--gold-l);opacity:1}
+.nav .give-link::after{display:none}
+.menu-btn{display:inline-flex;align-items:center;gap:.6rem;background:none;border:1px solid var(--line);color:var(--ivory);font-family:var(--f-caps);font-size:.68rem;letter-spacing:.24em;padding:.6rem .9rem;cursor:pointer}
+.menu-btn i{width:18px;height:9px;position:relative;display:block}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--gold-l);transition:transform .3s}
+.menu-btn i::before{top:0}.menu-btn i::after{bottom:0}
+.site-head.open .menu-btn i::before{transform:translateY(4px) rotate(45deg)}
+.site-head.open .menu-btn i::after{transform:translateY(-4px) rotate(-45deg)}
+.site-head.open .nav{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:.2rem;background:var(--ink);border-bottom:1px solid var(--line);padding:1rem var(--gut-r) 1.5rem var(--gut)}
+.site-head.open .nav a{padding:.85rem 0;border-bottom:1px solid var(--line-soft);font-size:.8rem}
+.site-head.open .nav .give-link{margin-top:.8rem;text-align:center;border-bottom:1px solid var(--gold)}
+@media (min-width:980px){
+  .menu-btn{display:none}
+  .nav{display:flex;align-items:center;gap:2rem}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(60% 70% at 82% 30%,rgba(30,76,99,.85) 0%,rgba(19,48,62,.6) 40%,rgba(11,31,41,0) 75%),
+  radial-gradient(40% 40% at 88% 12%,rgba(241,205,121,.18) 0%,rgba(241,205,121,0) 70%),
+  linear-gradient(180deg,var(--ink) 0%,var(--navy) 100%)}
+.hero .wrap{display:grid;gap:clamp(2.5rem,6vw,4rem);padding-block:clamp(3rem,8vw,6.5rem) clamp(3.5rem,8vw,6rem);grid-template-columns:minmax(0,1fr)}
+.hero-copy{display:flex;flex-direction:column;gap:1.6rem;min-width:0;position:relative;z-index:2}
+.hero-mark{width:clamp(96px,14vw,140px);opacity:.95}
+.hero h1{font-size:clamp(3.3rem,11vw,8rem);font-weight:300;line-height:.92;letter-spacing:-.02em}
+.hero h1 .l2{display:block;padding-left:clamp(0rem,6vw,4.5rem)}
+.ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:.4rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;font-family:var(--f-caps);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:1.05rem 1.6rem;border:1px solid var(--gold);cursor:pointer;transition:background .3s,color .3s,box-shadow .3s;min-height:48px}
+.btn-gold{background:linear-gradient(120deg,var(--gold) 0%,var(--gold-l) 55%,var(--gold) 100%);color:var(--ink);font-weight:600}
+.btn-gold:hover{box-shadow:0 0 0 4px rgba(241,205,121,.16),0 12px 40px -12px rgba(241,205,121,.55)}
+.btn-ghost{background:transparent;color:var(--ivory)}
+.btn-ghost:hover{background:rgba(188,144,69,.12)}
+.btn svg{width:14px;height:14px}
+
+.hero-art{position:relative;min-width:0;justify-self:center;width:min(100%,520px)}
+.arch{position:relative;aspect-ratio:4/5;width:100%;max-width:100%;border-radius:999px 999px 6px 6px;overflow:hidden;border:1px solid var(--line)}
+.arch::after{content:"";position:absolute;inset:12px;border:1px solid rgba(217,180,101,.45);border-radius:999px 999px 2px 2px;pointer-events:none}
+.arc-svg{position:absolute;inset:-14% -18% -6% -22%;width:140%;height:120%;pointer-events:none;overflow:visible;z-index:3}
+.arc-path{fill:none;stroke:url(#goldStroke);stroke-width:3.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.arc-path.thin{stroke-width:1.3;opacity:.8}
+.twinkle{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:no-preference){
+  .arc-path{stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.65,.05,.25,1) .35s forwards}
+  .arc-path.thin{animation-delay:.75s}
+  .twinkle{animation:twinkle 4.2s ease-in-out 2.4s infinite}
+  .star-glow{animation:glow 4.2s ease-in-out 2.4s infinite}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}45%{transform:scale(1.14) rotate(8deg)}55%{transform:scale(.96) rotate(4deg)}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (min-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);align-items:center}
+  .hero-art{justify-self:end}
+}
+
+/* photo placeholder */
+.ph{position:relative;background:
+  radial-gradient(circle at 1px 1px,rgba(241,205,121,.22) 1px,transparent 1.6px) 0 0/22px 22px,
+  radial-gradient(80% 60% at 30% 20%,rgba(30,76,99,.95),rgba(19,48,62,.9) 55%,rgba(11,31,41,1));
+  display:flex;flex-direction:column;justify-content:flex-end;gap:.6rem;padding:clamp(1rem,3vw,1.6rem);color:var(--ivory)}
+.ph::before{content:"";position:absolute;left:50%;top:42%;width:54px;height:54px;transform:translate(-50%,-50%);background:linear-gradient(135deg,var(--gold-l),var(--gold));opacity:.55;clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
+.ph .tag{align-self:flex-start;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold-l);padding:.3em .8em;position:relative;z-index:1}
+.ph .cap{font-family:var(--f-display);font-style:italic;font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.3;color:var(--ivory);position:relative;z-index:1;max-width:24em}
+.arch.ph{padding-bottom:clamp(2rem,6vw,3.2rem);padding-inline:clamp(1.6rem,6vw,2.6rem);text-align:center;align-items:center}
+.arch.ph .tag{align-self:center}
+
+/* verse band */
+.verse{background:var(--navy);border-block:1px solid var(--line)}
+.verse .wrap{padding-block:clamp(3.5rem,9vw,7rem);display:grid;gap:1.6rem;grid-template-columns:minmax(0,1fr)}
+.verse blockquote{margin:0;font-family:var(--f-display);font-style:italic;font-weight:300;font-size:clamp(1.9rem,5.2vw,4rem);line-height:1.12;max-width:20ch;text-wrap:balance}
+.verse blockquote .q{color:var(--gold);font-style:normal}
+.verse cite{font-style:normal;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.verse cite .rule{width:56px;height:1px;background:var(--gold)}
+@media (min-width:900px){.verse .wrap{grid-template-columns:3fr 9fr}.verse .side{padding-top:1.2rem}}
+
+/* sections */
+section{scroll-margin-top:80px}
+.sec{padding-block:clamp(4rem,10vw,8.5rem)}
+.sec-head{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:clamp(2.2rem,5vw,3.8rem)}
+.kicker{display:flex;align-items:center;gap:.9rem}
+.kicker::after{content:"";height:1px;width:clamp(40px,8vw,96px);background:var(--line)}
+
+/* about */
+.about-grid{display:grid;gap:clamp(2.4rem,6vw,5rem);grid-template-columns:minmax(0,1fr)}
+.portrait-wrap{position:relative;max-width:460px;width:100%}
+.portrait-wrap::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--line);pointer-events:none}
+.portrait{aspect-ratio:4/5;width:100%;position:relative}
+.about-copy{display:flex;flex-direction:column;gap:1.4rem;min-width:0}
+.about-copy p.body{max-width:38em;color:var(--muted)}
+.about-copy p.body:first-of-type::first-letter{font-family:var(--f-display);float:left;font-size:4.6em;line-height:.8;padding:.06em .1em 0 0;color:var(--gold-l)}
+.signature{font-family:var(--f-display);font-style:italic;font-size:2rem;color:var(--gold-l)}
+.mission{margin-top:clamp(3rem,7vw,5.5rem);display:grid;gap:1.4rem;grid-template-columns:minmax(0,1fr);border-top:1px solid var(--line);padding-top:clamp(2.2rem,5vw,3.5rem)}
+.mission p.stmt{font-family:var(--f-display);font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.2;font-weight:300;max-width:26ch;text-wrap:balance}
+.values{display:grid;grid-template-columns:minmax(0,1fr);margin-top:clamp(2.2rem,5vw,3.5rem)}
+.value{display:flex;flex-direction:column;gap:.5rem;padding-block:1.4rem;border-top:1px solid var(--line-soft)}
+.value h4{margin:0;font-family:var(--f-caps);font-weight:500;font-size:.85rem;letter-spacing:.2em;color:var(--ivory);display:flex;align-items:center;gap:.7rem}
+.value h4::before{content:"";width:.8em;height:.8em;background:var(--gold);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+.value p{color:var(--muted);font-size:.98rem;max-width:26em}
+@media (min-width:900px){
+  .about-grid{grid-template-columns:5fr 7fr;align-items:start}
+  .about-copy{padding-top:2rem}
+  .mission{grid-template-columns:3fr 9fr}
+  .values{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:2.5rem}
+  .value{border-top:none;border-left:1px solid var(--line);padding:0 0 0 1.6rem}
+}
+
+/* offerings */
+.offer-band{background:linear-gradient(180deg,var(--ink),var(--navy))}
+.offer-grid{display:grid;gap:clamp(2rem,5vw,4rem);grid-template-columns:minmax(0,1fr)}
+.offer-intro{display:flex;flex-direction:column;gap:1.2rem;min-width:0}
+.offer-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.offer{border-bottom:1px solid var(--line)}
+.offer a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem 1.5rem;padding-block:clamp(1.5rem,3.5vw,2.3rem);text-decoration:none;align-items:start}
+.offer .for{grid-column:1/-1}
+.offer h3{display:inline;background-image:linear-gradient(var(--gold),var(--gold));background-size:0 1px;background-repeat:no-repeat;background-position:0 96%;transition:background-size .5s cubic-bezier(.65,.05,.25,1),color .3s;padding-bottom:.08em}
+.offer a:hover h3,.offer a:focus-visible h3{background-size:100% 1px;color:var(--glow)}
+.offer .desc{grid-column:1/2;color:var(--muted);max-width:34em;font-size:1rem}
+.offer .arr{grid-row:2/4;grid-column:2;align-self:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:transform .4s,border-color .3s,background .3s}
+.offer .arr svg{width:16px;height:16px;stroke:var(--gold-l)}
+.offer a:hover .arr{transform:translateX(6px) rotate(-45deg);border-color:var(--gold);background:rgba(188,144,69,.14)}
+@media (min-width:900px){
+  .offer-grid{grid-template-columns:4fr 8fr}
+  .offer-intro{position:sticky;top:110px;align-self:start}
+}
+.mosaic{display:grid;gap:12px;margin-top:clamp(3rem,7vw,5rem);grid-template-columns:minmax(0,1fr)}
+.mosaic .ph{min-height:230px}
+@media (min-width:720px){
+  .mosaic{grid-template-columns:1.3fr 1fr;grid-template-rows:240px 240px}
+  .mosaic .m1{grid-row:1/3}
+}
+@media (min-width:1100px){
+  .mosaic{grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:380px}
+  .mosaic .m1{grid-row:auto}
+  .mosaic .m3{margin-top:60px}
+}
+
+/* gatherings: order of service */
+.program{position:relative;border:1px solid var(--gold);padding:6px;max-width:980px;margin-inline:auto;background:rgba(19,48,62,.5)}
+.program-in{border:1px solid var(--line);padding:clamp(1.6rem,5vw,3.6rem) clamp(1.1rem,5vw,3.6rem)}
+.program-top{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.9rem;margin-bottom:clamp(1.8rem,4vw,2.8rem)}
+.program-top img{width:64px}
+.program-top h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+.flourish{display:flex;align-items:center;gap:.8rem;color:var(--gold)}
+.flourish span{height:1px;width:clamp(40px,10vw,110px);background:linear-gradient(90deg,transparent,var(--gold))}
+.flourish span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.flourish i{width:10px;height:10px;background:var(--gold);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%)}
+.oos{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.oos li{padding-block:1.35rem;border-top:1px dotted rgba(217,180,101,.35)}
+.oos li:first-child{border-top:none}
+.oos .date{font-family:var(--f-caps);font-size:.72rem;letter-spacing:.26em;color:var(--gold-l);display:block;margin-bottom:.35rem}
+.oos .row{display:flex;align-items:baseline;gap:.7rem}
+.oos .title{font-family:var(--f-display);font-size:clamp(1.35rem,3vw,1.9rem);font-weight:500;line-height:1.15;min-width:0}
+.oos .leader{flex:1;border-bottom:2px dotted rgba(217,180,101,.55);transform:translateY(-.35em);min-width:24px}
+.oos .time{font-family:var(--f-caps);font-size:.85rem;letter-spacing:.14em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.oos .where{display:block;color:var(--muted);font-size:.95rem;margin-top:.3rem;font-style:italic;font-family:var(--f-display);font-size:1.1rem}
+.program-foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.hall{margin-top:clamp(2.5rem,6vw,4rem);aspect-ratio:21/8;min-height:220px;max-width:100%}
+
+/* voices */
+.voices-grid{display:grid;gap:clamp(2rem,5vw,3.5rem);grid-template-columns:minmax(0,1fr)}
+.feature-q{margin:0;position:relative;padding-top:3.5rem}
+.feature-q::before{content:"\201C";position:absolute;top:-1.4rem;left:-.3rem;font-family:var(--f-display);font-size:9rem;line-height:1;color:var(--gold);opacity:.8}
+.feature-q p{font-family:var(--f-display);font-weight:300;font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:1.15;text-wrap:balance}
+.who{display:flex;align-items:center;gap:.9rem;margin-top:1.4rem;font-family:var(--f-caps);font-size:.74rem;letter-spacing:.22em;color:var(--gold-l)}
+.who::before{content:"";width:40px;height:1px;background:var(--gold)}
+.side-qs{display:flex;flex-direction:column;gap:2rem;min-width:0}
+.side-q{margin:0;padding-left:1.4rem;border-left:1px solid var(--line)}
+.side-q p{font-family:var(--f-display);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.35}
+@media (min-width:900px){.voices-grid{grid-template-columns:7fr 5fr;align-items:end}}
+
+/* connect */
+.connect{background:var(--navy);border-top:1px solid var(--line)}
+.connect-grid{display:grid;gap:clamp(2.5rem,6vw,5rem);grid-template-columns:minmax(0,1fr)}
+.connect-copy{display:flex;flex-direction:column;gap:1.4rem;min-width:0}
+.mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem}
+.mail{font-family:var(--f-display);font-size:clamp(1.4rem,3.4vw,2.1rem);color:var(--gold-l);user-select:all;-webkit-user-select:all;word-break:break-all}
+.copy-btn{background:none;border:1px solid var(--line);color:var(--ivory);font-family:var(--f-body);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:.55rem .9rem;cursor:pointer;min-height:40px}
+.copy-btn:hover{border-color:var(--gold)}
+.socials{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.socials span{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.2em;padding:.55rem .9rem;border:1px dashed rgba(246,243,236,.28);color:var(--muted)}
+form{display:grid;gap:1.4rem;min-width:0}
+.field{display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.field label{font-family:var(--f-caps);font-size:.68rem;letter-spacing:.24em;color:var(--gold-l)}
+.field input,.field textarea,.field select{background:transparent;border:none;border-bottom:1px solid rgba(246,243,236,.3);color:var(--ivory);font-family:var(--f-body);font-size:1.05rem;font-weight:300;padding:.7rem 0;border-radius:0;width:100%;transition:border-color .3s}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold-l) 50%),linear-gradient(135deg,var(--gold-l) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.field select option{background:var(--navy);color:var(--ivory)}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-bottom-color:var(--glow)}
+.two{display:grid;gap:1.4rem;grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.form-note{font-size:.95rem;color:var(--glow);font-family:var(--f-display);font-style:italic;font-size:1.2rem}
+@media (min-width:900px){.connect-grid{grid-template-columns:5fr 6fr}}
+
+/* give */
+.give{position:relative;overflow:hidden;background:
+  radial-gradient(50% 80% at 50% 120%,rgba(241,205,121,.28),rgba(188,144,69,.08) 50%,rgba(11,31,41,0) 75%),
+  var(--ink);border-top:1px solid var(--line)}
+.give .wrap{padding-block:clamp(4.5rem,11vw,9rem);display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem}
+.give h2{font-size:clamp(2.6rem,7vw,5.2rem)}
+.give .lede{margin-inline:auto}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:.6rem}
+.chip{min-width:92px;min-height:52px;background:transparent;border:1px solid var(--line);color:var(--ivory);font-family:var(--f-display);font-size:1.5rem;font-weight:500;padding:.4rem 1.3rem;cursor:pointer;transition:all .25s;font-variant-numeric:tabular-nums}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold);box-shadow:0 10px 40px -14px rgba(241,205,121,.7)}
+.give-note{min-height:1.6em;color:var(--glow);font-family:var(--f-display);font-style:italic;font-size:1.15rem}
+
+/* footer */
+.foot{background:#071820;border-top:1px solid var(--line)}
+.foot .wrap{padding-block:clamp(3rem,7vw,4.5rem) clamp(2rem,5vw,3rem);display:grid;gap:2rem;grid-template-columns:minmax(0,1fr)}
+.foot img{width:min(320px,80%)}
+.foot nav{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem}
+.foot nav a{font-family:var(--f-caps);font-size:.7rem;letter-spacing:.22em;text-decoration:none;color:var(--muted)}
+.foot nav a:hover{color:var(--gold-l)}
+.fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:1.5rem;grid-column:1/-1}
+@media (min-width:900px){.foot .wrap{grid-template-columns:1fr 1fr;align-items:end}.foot nav{justify-content:flex-end}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="ribbon"><div class="wrap"><span>Style option <b>1 of 3</b></span><span aria-hidden="true">·</span><span>Regal</span><span aria-hidden="true">·</span><span>Prepared by Revvit</span></div></div>
+
+<header class="site-head" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="On the Verge Enrichment home">
+      <img src="assets/otv-mark-reverse.png" alt="" width="54" height="38">
+      <span>On the Verge<small>Enrichment</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav"><i></i>Menu</button>
+    <nav class="nav" id="siteNav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#offerings">Offerings</a>
+      <a href="#gatherings">Gatherings</a>
+      <a href="#voices">Voices</a>
+      <a href="#connect">Connect</a>
+      <a class="give-link" href="#give">Give</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div class="hero-copy">
+        <img class="hero-mark" src="assets/otv-mark-reverse.png" alt="On the Verge Enrichment monogram" width="140" height="98">
+        <p class="caps">A faith-rooted enrichment ministry</p>
+        <h1 id="heroTitle">You are on <span class="l2">the <em class="gilt">verge.</em></span></h1>
+        <p class="lede">On the Verge Enrichment walks with women, families and young people through teaching, mentoring and community, so the next season finds you rooted, ready and whole.</p>
+        <span class="need">Needed from you: confirm who you serve</span>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#gatherings">Join the next gathering</a>
+          <a class="btn btn-ghost" href="#about">Meet KD
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="arch ph" role="img" aria-label="Photo placeholder: KD speaking or praying with a small group in warm natural light">
+          <span class="tag">Photo needed</span>
+          <span class="cap">KD speaking or praying with a small group, warm natural light</span>
+        </div>
+        <svg class="arc-svg" viewBox="0 0 700 720" aria-hidden="true">
+          <defs>
+            <linearGradient id="goldStroke" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#9A7230" stop-opacity="0"/>
+              <stop offset=".22" stop-color="#BC9045"/>
+              <stop offset=".6" stop-color="#F1CD79"/>
+              <stop offset="1" stop-color="#D9B465"/>
+            </linearGradient>
+            <linearGradient id="starFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#F1CD79"/>
+              <stop offset=".55" stop-color="#D9B465"/>
+              <stop offset="1" stop-color="#9A7230"/>
+            </linearGradient>
+            <radialGradient id="starHalo">
+              <stop offset="0" stop-color="#F1CD79" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#F1CD79" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <path class="arc-path" pathLength="1" d="M70 640 C 130 470, 300 300, 520 190 S 600 150, 610 146"/>
+          <path class="arc-path thin" pathLength="1" d="M120 660 C 190 520, 330 380, 520 260"/>
+          <g transform="translate(624 128)">
+            <circle class="star-glow" r="70" fill="url(#starHalo)"/>
+            <g class="twinkle">
+              <path d="M0 -58 L9 -9 L58 0 L9 9 L0 58 L-9 9 L-58 0 L-9 -9 Z" fill="url(#starFill)"/>
+              <path d="M0 -30 L5 -5 L30 0 L5 5 L0 30 L-5 5 L-30 0 L-5 -5 Z" fill="#F1CD79" transform="rotate(45)"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="verse" aria-label="Anchor scripture">
+    <div class="wrap">
+      <div class="side"><p class="caps">Our anchor</p></div>
+      <div style="display:flex;flex-direction:column;gap:1.6rem;min-width:0">
+        <blockquote><span class="q">“</span>See, I am doing a new thing! Now it springs up; do you not perceive it?<span class="q">”</span></blockquote>
+        <cite><span class="rule"></span><span class="caps">Isaiah 43:19 · NIV</span><span class="need">Needed from you: confirm your anchor verse</span></cite>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="about" aria-labelledby="aboutTitle">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="portrait-wrap">
+          <div class="portrait ph" role="img" aria-label="Photo placeholder: portrait of KD">
+            <span class="tag">Photo needed</span>
+            <span class="cap">A portrait of KD, natural light, warm and approachable</span>
+          </div>
+        </div>
+        <div class="about-copy">
+          <div class="kicker"><span class="caps">The heart behind the ministry</span></div>
+          <h2 id="aboutTitle">Meet <em class="gilt">KD</em></h2>
+          <p class="body">KD is a teacher, mentor and encourager who believes every person is closer to their breakthrough than they think. For years she has sat at kitchen tables, led small groups and prayed in hospital hallways with people who needed someone to remind them that God was not finished.</p>
+          <p class="body">On the Verge Enrichment grew out of that calling: a place where faith meets real life, where women, families and young people are equipped with the Word and with practical wisdom for the season in front of them.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.6rem"><span class="need">Needed from you: full name and title</span><span class="need">Needed from you: bio, 120 to 200 words</span></div>
+          <p class="signature">With love, KD</p>
+        </div>
+      </div>
+
+      <div class="mission">
+        <p class="caps">Our mission</p>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;min-width:0">
+          <p class="stmt">To enrich lives with the Word, practical wisdom and genuine community, helping people step boldly into what God has <em class="gilt">prepared.</em></p>
+          <span class="need" style="align-self:flex-start">Needed from you: your mission statement</span>
+        </div>
+      </div>
+
+      <div class="values">
+        <div class="value"><h4>Rooted in the Word</h4><p>Every gathering opens the Scriptures and lets them speak plainly into everyday life.</p></div>
+        <div class="value"><h4>Real community</h4><p>No one walks alone here. We pray together, eat together and show up for one another.</p></div>
+        <div class="value"><h4>Ready for what's next</h4><p>We prepare hearts and habits now, so the next season finds you ready to receive it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec offer-band" id="offerings" aria-labelledby="offerTitle">
+    <div class="wrap">
+      <div class="offer-grid">
+        <div class="offer-intro">
+          <div class="kicker"><span class="caps">Offerings</span></div>
+          <h2 id="offerTitle">Ways to <em class="gilt">grow</em> with us</h2>
+          <p class="lede">Whether you come for one workshop or walk with us all year, there is a place for you at the table.</p>
+          <span class="need" style="align-self:flex-start">Needed from you: confirm your offerings</span>
+        </div>
+        <ul class="offer-list">
+          <li class="offer"><a href="#connect"><span class="caps for">For everyone</span><h3>Enrichment Workshops</h3><span class="desc">Hands-on sessions on purpose, prayer, finances and family life, built so you leave with a plan and not just a feeling.</span><span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a></li>
+          <li class="offer"><a href="#connect"><span class="caps for">For women</span><h3>Women's Circles</h3><span class="desc">Small-group mentoring and prayer for women in every season, from new mothers to grandmothers starting over.</span><span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a></li>
+          <li class="offer"><a href="#connect"><span class="caps for">For young people and parents</span><h3>Youth &amp; Family Enrichment</h3><span class="desc">Programs that build confidence, character and faith in young people, and give parents room to breathe and grow too.</span><span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a></li>
+          <li class="offer"><a href="#connect"><span class="caps for">For churches and conferences</span><h3>Speaking &amp; Retreats</h3><span class="desc">KD ministers at churches, conferences and retreats. Book her to bring a word of preparation to your people.</span><span class="arr"><svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a></li>
+        </ul>
+      </div>
+
+      <div class="mosaic">
+        <div class="ph m1" role="img" aria-label="Photo placeholder: women in a circle with Bibles and coffee"><span class="tag">Photo needed</span><span class="cap">Women in a circle with Bibles and coffee</span></div>
+        <div class="ph m2" role="img" aria-label="Photo placeholder: a diverse group of teens laughing"><span class="tag">Photo needed</span><span class="cap">A diverse group of teens laughing together</span></div>
+        <div class="ph m3" role="img" aria-label="Photo placeholder: a family gathered at a table"><span class="tag">Photo needed</span><span class="cap">A family gathered around a table</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="gatherings" aria-labelledby="gatherTitle">
+    <div class="wrap">
+      <div class="program">
+        <div class="program-in">
+          <div class="program-top">
+            <img src="assets/otv-mark-reverse.png" alt="" width="64" height="45">
+            <p class="caps">Order of Gatherings</p>
+            <h2 id="gatherTitle">Winter <em class="gilt">2026 into 2027</em></h2>
+            <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
+          </div>
+          <ol class="oos">
+            <li>
+              <span class="date">Saturday · December 13</span>
+              <div class="row"><span class="title">“Ready for the New” Women's Brunch</span><span class="leader" aria-hidden="true"></span><span class="time">10:00 AM</span></div>
+              <span class="where">Fellowship Hall</span>
+            </li>
+            <li>
+              <span class="date">Thursday · January 8</span>
+              <div class="row"><span class="title">Purpose Workshop: Vision for 2027</span><span class="leader" aria-hidden="true"></span><span class="time">6:30 PM</span></div>
+              <span class="where">Online, link sent after you register</span>
+            </li>
+            <li>
+              <span class="date">Saturday · February 7</span>
+              <div class="row"><span class="title">Youth Enrichment Saturday</span><span class="leader" aria-hidden="true"></span><span class="time">9:00 AM</span></div>
+              <span class="where">Community Center</span>
+            </li>
+          </ol>
+          <div class="program-foot">
+            <span class="sample">Sample dates, yours go here</span>
+            <span class="need">Needed from you: real dates and locations</span>
+            <a class="btn btn-ghost" href="#connect">Save my seat</a>
+          </div>
+        </div>
+      </div>
+      <div class="ph hall" role="img" aria-label="Photo placeholder: a full fellowship hall with a mixed-age, mixed-race congregation"><span class="tag">Photo needed</span><span class="cap">A full fellowship hall, mixed-age and mixed-race, worship in motion</span></div>
+    </div>
+  </section>
+
+  <section class="sec offer-band" id="voices" aria-labelledby="voicesTitle" style="padding-top:clamp(3rem,8vw,6rem)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker"><span class="caps">Voices</span></div>
+        <h2 id="voicesTitle">What God is <em class="gilt">doing</em></h2>
+        <span class="sample">Sample words, replace with real testimonies</span>
+      </div>
+      <div class="voices-grid">
+        <figure class="feature-q">
+          <p>I came to one workshop and left with a plan and a prayer partner. I'm not the same woman.</p>
+          <figcaption class="who">Sister Renee M.</figcaption>
+        </figure>
+        <div class="side-qs">
+          <figure class="side-q"><p>KD has a way of making you believe the next chapter is already written.</p><figcaption class="who">Marcus T.</figcaption></figure>
+          <figure class="side-q"><p>My daughter found her voice in the youth program.</p><figcaption class="who">Angela &amp; David R.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec connect" id="connect" aria-labelledby="connectTitle">
+    <div class="wrap">
+      <div class="connect-grid">
+        <div class="connect-copy">
+          <div class="kicker"><span class="caps">Connect</span></div>
+          <h2 id="connectTitle">Let's walk this out <em class="gilt">together</em></h2>
+          <p class="lede">Ask a question, share a prayer request or invite KD to minister at your church. Every message is read and answered personally.</p>
+          <div class="mailrow">
+            <span class="mail" id="mailText">kd@otvenrichment.com</span>
+            <button class="copy-btn" type="button" id="copyBtn">Copy email</button>
+          </div>
+          <div class="socials" aria-label="Social links to come">
+            <span>Facebook</span><span>Instagram</span><span>YouTube</span>
+          </div>
+          <span class="need" style="align-self:flex-start">Needed from you: your social handles</span>
+        </div>
+        <form id="contactForm" novalidate>
+          <div class="two">
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label for="f-interest">I'm interested in</label>
+            <select id="f-interest" name="interest">
+              <option>Enrichment Workshop</option>
+              <option>Women's Circle</option>
+              <option>Youth &amp; Family</option>
+              <option>Book KD to speak</option>
+              <option>Just saying hello</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-msg">How can we pray or partner with you?</label><textarea id="f-msg" name="message"></textarea></div>
+          <div><button class="btn btn-gold" type="submit">Send message</button></div>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="give" id="give" aria-labelledby="giveTitle">
+    <div class="wrap">
+      <p class="caps">Give</p>
+      <h2 id="giveTitle">Sow into what's <em class="gilt">next</em></h2>
+      <p class="lede">Your gift funds workshops, scholarships for families and youth programs in our community.</p>
+      <div class="chips" role="group" aria-label="Choose an amount">
+        <button class="chip" type="button" aria-pressed="false" data-amt="$25">$25</button>
+        <button class="chip" type="button" aria-pressed="true" data-amt="$50">$50</button>
+        <button class="chip" type="button" aria-pressed="false" data-amt="$100">$100</button>
+        <button class="chip" type="button" aria-pressed="false" data-amt="another amount">Other</button>
+      </div>
+      <button class="btn btn-gold" type="button" id="giveBtn">Give $50</button>
+      <p class="give-note" id="giveNote" role="status" aria-live="polite"></p>
+      <span class="need">Needed from you: giving provider and 501(c)(3) status</span>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="assets/otv-logo-reverse.png" alt="On the Verge Enrichment" width="320" height="200">
+    <nav aria-label="Footer">
+      <a href="#about">About</a><a href="#offerings">Offerings</a><a href="#gatherings">Gatherings</a><a href="#connect">Connect</a><a href="#give">Give</a>
+    </nav>
+    <div class="fine"><span>© <span id="yr">2026</span> On the Verge Enrichment. All rights reserved.</span><span>Site by Revvit</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var head=document.querySelector('.site-head'),btn=document.getElementById('menuBtn');
+  btn.addEventListener('click',function(){var o=head.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
+  document.querySelectorAll('#siteNav a').forEach(function(a){a.addEventListener('click',function(){head.classList.remove('open');btn.setAttribute('aria-expanded','false');});});
+
+  var chips=document.querySelectorAll('.chip'),giveBtn=document.getElementById('giveBtn'),giveNote=document.getElementById('giveNote');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    c.setAttribute('aria-pressed','true');
+    var a=c.getAttribute('data-amt');
+    giveBtn.textContent=a.charAt(0)==='$'?'Give '+a:'Give another amount';
+    giveNote.textContent='';
+  });});
+  giveBtn.addEventListener('click',function(){giveNote.textContent='Thank you. Secure online giving gets connected when the site is built.';});
+
+  var form=document.getElementById('contactForm'),note=document.getElementById('formNote');
+  form.addEventListener('submit',function(e){e.preventDefault();
+    var n=document.getElementById('f-name').value.trim();
+    note.textContent='Thanks'+(n?', '+n.split(' ')[0]:'')+'. This demo form doesn’t send yet; it will reach KD once the site is live.';
+  });
+
+  var copyBtn=document.getElementById('copyBtn'),mail=document.getElementById('mailText');
+  copyBtn.addEventListener('click',function(){
+    var t=mail.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=window.getSelection();s.removeAllRanges();s.addRange(r);copyBtn.textContent='Selected';}
+    try{navigator.clipboard.writeText(t).then(function(){copyBtn.textContent='Copied';setTimeout(function(){copyBtn.textContent='Copy email'},1800)},sel);}catch(e){sel();}
+  });
+})();
+</script>

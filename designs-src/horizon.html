@@ -1,0 +1,712 @@
+<title>OTV Horizon Edition</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: "Horizon" — quiet editorial sheet, one thin horizon line through the hero, a gold star rising above it; asymmetric two-column bands that stack on phones. */
+:root {
+  --bg: #F8FAFA;
+  --mist: #E7EEF0;
+  --surface: #FFFFFF;
+  --ink: #13303E;
+  --ink-soft: #4E6873;
+  --teal: #1E4C63;
+  --teal-wash: rgba(30, 76, 99, 0.07);
+  --gold: #BC9045;
+  --gold-ink: #8F6A2C;
+  --gold-hi: #E2BE6E;
+  --gold-lo: #9A7230;
+  --line: rgba(19, 48, 62, 0.14);
+  --line-strong: rgba(19, 48, 62, 0.32);
+  --header-bg: rgba(248, 250, 250, 0.86);
+  --photo-a: #EDF3F4;
+  --photo-b: #DCE7EA;
+  --on-teal: #FFFFFF;
+  --starfield: 0;
+  --display: "Instrument Serif", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1B24; --mist: #11283A; --surface: #0F222D; --ink: #EDF3F4; --ink-soft: #A3B8C0;
+    --teal: #86B9CB; --teal-wash: rgba(134, 185, 203, 0.08); --gold: #D2A854; --gold-ink: #DDB868;
+    --gold-hi: #F1CD79; --gold-lo: #A97B2D; --line: rgba(237, 243, 244, 0.13); --line-strong: rgba(237, 243, 244, 0.3);
+    --header-bg: rgba(11, 27, 36, 0.84); --photo-a: #12293A; --photo-b: #0D202C; --on-teal: #0B1B24; --starfield: 1;
+    color-scheme: dark;
+  }
+  :root:not([data-theme="light"]) .logo-light { display: none; }
+  :root:not([data-theme="light"]) .logo-dark { display: block; }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1B24; --mist: #11283A; --surface: #0F222D; --ink: #EDF3F4; --ink-soft: #A3B8C0;
+  --teal: #86B9CB; --teal-wash: rgba(134, 185, 203, 0.08); --gold: #D2A854; --gold-ink: #DDB868;
+  --gold-hi: #F1CD79; --gold-lo: #A97B2D; --line: rgba(237, 243, 244, 0.13); --line-strong: rgba(237, 243, 244, 0.3);
+  --header-bg: rgba(11, 27, 36, 0.84); --photo-a: #12293A; --photo-b: #0D202C; --on-teal: #0B1B24; --starfield: 1;
+  color-scheme: dark;
+}
+:root[data-theme="dark"] .logo-light { display: none; }
+:root[data-theme="dark"] .logo-dark { display: block; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-weight: 300; font-size: 1.0625rem; line-height: 1.7;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+.logo-dark { display: none; }
+
+.wrap {
+  width: 100%; max-width: 1320px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+
+/* type */
+.eyebrow { font-family: var(--body); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal); margin: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.01em; line-height: 1.02; }
+h1 { font-size: clamp(3.1rem, 10.5vw, 8.6rem); }
+h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+h3 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.1; }
+em { font-style: italic; }
+.lede { font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--ink-soft); max-width: 34rem; margin: 0; }
+p { margin: 0; }
+.muted { color: var(--ink-soft); }
+
+/* the "needed from you" tag */
+.need {
+  display: inline-flex; align-items: center; gap: 0.5em; vertical-align: middle;
+  font-family: var(--body); font-weight: 500; font-size: 0.68rem; line-height: 1.3; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold-ink); border: 1px dashed var(--gold); border-radius: 999px; padding: 0.38em 0.9em 0.36em 0.7em; background: transparent;
+  max-width: 100%; white-space: normal; text-align: left;
+}
+.need svg { width: 0.95em; height: 0.95em; flex: none; }
+.sample { color: var(--teal); border-color: var(--teal); }
+
+/* ribbon + header */
+.ribbon { border-bottom: 1px solid var(--line); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); font-weight: 400; }
+.ribbon .wrap { padding-block: 0.6rem; display: flex; justify-content: center; text-align: center; gap: 0.6em; flex-wrap: wrap; }
+.ribbon b { font-weight: 500; color: var(--gold-ink); }
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--header-bg); backdrop-filter: saturate(140%) blur(14px); -webkit-backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--line); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.7rem; }
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.brand img { height: 40px; width: auto; }
+.brand span { font-family: var(--display); font-size: 1.25rem; line-height: 1; letter-spacing: 0.01em; }
+.brand span small { display: block; font-family: var(--body); font-size: 0.58rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold-ink); margin-top: 0.3rem; font-weight: 500; }
+.nav { display: none; align-items: center; gap: 2rem; }
+.nav a { text-decoration: none; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 400; color: var(--ink-soft); transition: color .2s; }
+.nav a:hover { color: var(--ink); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em; cursor: pointer;
+  font-family: var(--body); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
+  padding: 1em 1.6em; border-radius: 999px; border: 1px solid var(--teal); background: var(--teal); color: var(--on-teal);
+  transition: transform .25s ease, background .25s, color .25s, border-color .25s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn.ghost:hover { border-color: var(--ink); }
+.btn .arr { transition: transform .25s; }
+.btn:hover .arr { transform: translateX(3px); }
+.nav .btn { color: var(--on-teal); padding: 0.75em 1.3em; font-size: 0.72rem; }
+.menu-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: none; border: 1px solid var(--line-strong); color: var(--ink); border-radius: 999px; padding: 0.55rem 1rem; font: 500 0.72rem/1 var(--body); letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; }
+.menu-btn i { display: block; width: 16px; height: 1px; background: currentColor; position: relative; }
+.menu-btn i::after { content: ""; position: absolute; left: 0; top: 5px; width: 10px; height: 1px; background: currentColor; }
+.mobile-nav { border-top: 1px solid var(--line); }
+.mobile-nav .wrap { display: grid; padding-block: 0.5rem 1.2rem; }
+.mobile-nav a { text-decoration: none; font-family: var(--display); font-size: 1.9rem; padding: 0.45rem 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 900px) { .nav { display: flex; } .menu-btn, .mobile-nav { display: none !important; } }
+
+/* hero */
+.hero { position: relative; padding-top: clamp(3rem, 8vw, 6.5rem); }
+.starfield { position: absolute; inset: 0; pointer-events: none; opacity: var(--starfield); transition: opacity .4s;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.7) 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 42%, rgba(255,255,255,.45) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 46% 12%, rgba(255,255,255,.6) 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 33%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 15%, rgba(255,255,255,.7) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 48%, rgba(255,255,255,.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 7% 62%, rgba(255,255,255,.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 58%, rgba(255,255,255,.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 36% 70%, rgba(255,255,255,.3) 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 72%, rgba(255,255,255,.35) 50%, transparent 51%);
+}
+.hero-top { position: relative; display: grid; gap: 1.6rem; }
+.hero h1 em { color: var(--teal); }
+.hero-sub { display: grid; gap: 2rem; margin-top: clamp(1.8rem, 4vw, 3rem); align-items: end; }
+.hero-sub .copy { display: grid; gap: 1.5rem; justify-items: start; }
+.ctas { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.verse { border-left: 1px solid var(--gold); padding-left: 1.2rem; display: grid; gap: 0.6rem; justify-items: start; max-width: 25rem; }
+.verse q { font-family: var(--display); font-style: italic; font-size: 1.45rem; line-height: 1.3; quotes: "\201C" "\201D"; }
+.verse cite { font-style: normal; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+@media (min-width: 900px) {
+  .hero-sub { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 4rem; }
+  .verse { justify-self: end; }
+}
+
+.horizon { position: relative; height: clamp(220px, 34vw, 380px); margin-top: clamp(1rem, 3vw, 2rem); }
+.sky { position: absolute; inset: 0 0 32% 0; overflow: hidden; }
+.star-wrap { position: absolute; left: 50%; bottom: 0; width: clamp(110px, 15vw, 170px); aspect-ratio: 1; transform: translate(-50%, 46%); will-change: transform; }
+@media (min-width: 900px) { .star-wrap { left: 72%; } }
+.star-wrap svg { width: 100%; height: 100%; overflow: visible; }
+.star-glow { position: absolute; inset: -60%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--gold-hi) 38%, transparent) 0%, transparent 62%); opacity: 0.7; }
+.horizon-line { position: absolute; left: 0; right: 0; bottom: 32%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--line-strong) 12%, var(--gold) 72%, var(--line-strong) 92%, transparent 100%); }
+.below { position: absolute; left: 0; right: 0; bottom: 0; height: 32%; background: linear-gradient(180deg, var(--teal-wash), transparent); }
+.horizon-meta { position: absolute; left: 0; right: 0; bottom: calc(32% - 2.6rem); }
+.horizon-meta .wrap { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* photo placeholders */
+.photo { position: relative; margin: 0; display: grid; gap: 0.8rem; }
+.frame {
+  position: relative; width: 100%; max-width: 100%; overflow: hidden; border: 1px solid var(--line);
+  background:
+    radial-gradient(120% 80% at 80% 10%, color-mix(in srgb, var(--gold) 12%, transparent), transparent 55%),
+    linear-gradient(180deg, var(--photo-a), var(--photo-b));
+}
+.frame::before { content: ""; position: absolute; left: 0; right: 0; top: 64%; height: 1px; background: var(--line-strong); }
+.frame::after { content: ""; position: absolute; left: 0; right: 0; top: 64%; bottom: 0; background: linear-gradient(180deg, var(--teal-wash), transparent); }
+.frame .mini-star { position: absolute; width: 26px; height: 26px; left: 68%; top: calc(64% - 30px); opacity: .85; }
+.frame .need { position: absolute; left: 14px; top: 14px; background: var(--surface); }
+.photo figcaption { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
+.photo figcaption b { font-weight: 500; color: var(--ink); }
+.r-pano { aspect-ratio: 16 / 9; }
+@media (min-width: 900px) { .r-pano { aspect-ratio: 21 / 8; } }
+.r-portrait { aspect-ratio: 4 / 5; }
+.r-wide { aspect-ratio: 3 / 2; }
+
+/* sections */
+section { scroll-margin-top: 80px; }
+.band { padding-block: clamp(4.5rem, 10vw, 8.5rem); border-top: 1px solid var(--line); }
+.band.plain { border-top: 0; }
+.split { display: grid; gap: 2.5rem; }
+.split > * { min-width: 0; }
+.label-col { display: grid; gap: 1.2rem; align-content: start; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(3rem, 7vw, 7rem); }
+  .split.rev { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .sticky { position: sticky; top: 7rem; }
+}
+
+/* about */
+.bio { display: grid; gap: 1.2rem; max-width: 38rem; }
+.bio p { font-size: 1.12rem; }
+.mission { margin-top: 2.6rem; padding-top: 2rem; border-top: 1px solid var(--line); display: grid; gap: 1rem; justify-items: start; }
+.mission blockquote { margin: 0; font-family: var(--display); font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.18; }
+.mission blockquote em { color: var(--teal); }
+.values { margin-top: 2.6rem; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+.values div { padding: 1.2rem 0; border-bottom: 1px solid var(--line); display: grid; gap: 0.25rem; }
+.values dt { font-family: var(--display); font-size: 1.5rem; line-height: 1.15; }
+.values dd { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+@media (min-width: 640px) {
+  .values { grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+  .values div { border-bottom: 0; padding: 1.4rem 1.4rem 1.4rem 0; }
+  .values div + div { border-left: 1px solid var(--line); padding-left: 1.4rem; }
+}
+
+/* programs accordion */
+.programs { border-top: 1px solid var(--line-strong); }
+.programs details { border-bottom: 1px solid var(--line); }
+.programs summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: center; padding: 1.6rem 0; }
+.programs summary::-webkit-details-marker { display: none; }
+.programs summary h3 { transition: color .25s, transform .35s ease; }
+.programs summary:hover h3 { color: var(--teal); transform: translateX(6px); }
+.programs summary p { color: var(--ink-soft); font-size: 0.98rem; margin-top: 0.4rem; }
+.plus { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); position: relative; flex: none; transition: transform .35s ease, border-color .25s, background .25s; }
+.plus::before, .plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 1px; background: var(--ink); transform: translate(-50%, -50%); }
+.plus::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .35s ease; }
+details[open] .plus { transform: rotate(180deg); border-color: var(--gold); }
+details[open] .plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+.prog-body { padding: 0 0 2rem; display: grid; gap: 1.2rem; max-width: 40rem; }
+.prog-body dl { margin: 0; display: grid; gap: 0.9rem; }
+.prog-body dl div { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
+.prog-body dt { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); padding-top: 0.3rem; }
+.prog-body dd { margin: 0; }
+.text-link { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--teal); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; justify-self: start; }
+@media (max-width: 520px) { .prog-body dl div { grid-template-columns: 1fr; gap: 0.2rem; } }
+
+/* events */
+.events-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 2.5rem; }
+.events { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-strong); }
+.event { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr); gap: 1.2rem 1.6rem; padding: 1.7rem 0; border-bottom: 1px solid var(--line); align-items: center; position: relative; }
+.date { font-variant-numeric: tabular-nums lining-nums; display: grid; justify-items: start; line-height: 1; }
+.date .mo { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-ink); font-weight: 500; }
+.date .dd { font-family: var(--display); font-size: 3.4rem; line-height: 0.95; margin-top: 0.3rem; }
+.date .dw { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.35rem; }
+.event h3 { font-size: clamp(1.45rem, 2.6vw, 2rem); }
+.event .meta { margin-top: 0.4rem; color: var(--ink-soft); font-size: 0.95rem; font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; align-items: center; }
+.event .act { grid-column: 2; justify-self: start; }
+@media (min-width: 820px) {
+  .event { grid-template-columns: 7rem minmax(0, 1fr) auto; }
+  .event .act { grid-column: 3; justify-self: end; }
+  .event::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0; background: var(--gold); transition: width .6s ease; }
+  .event:hover::before { width: 100%; }
+}
+
+/* testimonials */
+.quotes { position: relative; text-align: left; }
+.quote-stage { display: grid; }
+.quote { grid-area: 1 / 1; margin: 0; display: grid; gap: 1.8rem; opacity: 0; transform: translateY(10px); transition: opacity .7s ease, transform .7s ease; pointer-events: none; }
+.quote.on { opacity: 1; transform: none; pointer-events: auto; }
+.quote p { font-family: var(--display); font-size: clamp(2rem, 5.2vw, 4.2rem); line-height: 1.08; letter-spacing: -0.01em; max-width: 22ch; text-wrap: balance; }
+.quote p::before { content: "\201C"; color: var(--gold); }
+.quote p::after { content: "\201D"; color: var(--gold); }
+.quote footer { font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); display: flex; gap: 1rem; align-items: center; }
+.quote footer::before { content: ""; width: 40px; height: 1px; background: var(--gold); }
+.q-controls { margin-top: 2.6rem; display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.dots { display: flex; gap: 0.6rem; }
+.dot { width: 34px; height: 20px; border: 0; background: none; cursor: pointer; padding: 0; position: relative; }
+.dot::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--line-strong); transition: background .3s; }
+.dot[aria-current="true"]::before { background: var(--gold); }
+.arrows { display: flex; gap: 0.5rem; }
+.arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); background: none; color: var(--ink); cursor: pointer; font: 400 1.1rem/1 var(--body); }
+.arrow:hover { border-color: var(--ink); }
+
+/* connect */
+.contact-line { display: grid; gap: 0.5rem; margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.contact-line .k { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; }
+.email { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2.1rem); user-select: all; word-break: break-all; }
+.copy-btn { border: 1px solid var(--line-strong); background: none; color: var(--ink); border-radius: 999px; padding: 0.5rem 0.9rem; font: 500 0.68rem/1 var(--body); letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; }
+form { display: grid; gap: 1.5rem; }
+.field { display: grid; gap: 0.45rem; }
+.field label { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+.field input, .field textarea, .field select {
+  width: 100%; font: 300 1.08rem/1.5 var(--body); color: var(--ink); background: transparent;
+  border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; padding: 0.55rem 0; transition: border-color .25s;
+}
+.field select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%), linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%); background-position: calc(100% - 12px) 55%, calc(100% - 7px) 55%; background-size: 5px 5px; background-repeat: no-repeat; }
+.field select option { background: var(--surface); color: var(--ink); }
+.field textarea { min-height: 7.5rem; resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-bottom-color: var(--gold); }
+.two { display: grid; gap: 1.5rem; }
+@media (min-width: 640px) { .two { grid-template-columns: 1fr 1fr; } }
+.form-note { font-size: 0.95rem; color: var(--teal); border-left: 1px solid var(--gold); padding-left: 1rem; }
+
+/* give */
+.give { background: var(--mist); border-top: 0; position: relative; overflow: hidden; }
+.give::before { content: ""; position: absolute; left: 0; right: 0; top: 58%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold) 40%, transparent); opacity: .5; }
+.give .wrap { position: relative; }
+.give-grid { display: grid; gap: 2.5rem; align-items: end; }
+@media (min-width: 900px) { .give-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6rem; } }
+.amounts { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.chip { font: 400 1.25rem/1 var(--display); font-variant-numeric: tabular-nums; padding: 0.85rem 1.4rem; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); cursor: pointer; transition: all .2s; min-width: 4.8rem; }
+.chip[aria-pressed="true"] { background: var(--teal); color: var(--on-teal); border-color: var(--teal); }
+.give-actions { display: grid; gap: 1.2rem; justify-items: start; }
+
+/* footer */
+.foot { border-top: 1px solid var(--line); padding-block: 4rem 2.5rem; }
+.foot-grid { display: grid; gap: 2.5rem; }
+.foot img { width: min(320px, 80%); height: auto; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 0.6rem 1.8rem; }
+.foot nav a { text-decoration: none; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.foot small { color: var(--ink-soft); font-size: 0.78rem; letter-spacing: 0.06em; display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; justify-content: space-between; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+@media (min-width: 900px) { .foot-grid { grid-template-columns: 1fr auto; align-items: end; } }
+
+/* reveal (visible at rest; only a gentle lift once JS confirms) */
+.rv { transition: transform .9s cubic-bezier(.2,.7,.2,1), opacity .9s ease; }
+.js .rv.pending { transform: translateY(18px); opacity: 0.001; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv, .quote, .star-wrap { transition: none !important; }
+  .js .rv.pending { transform: none; opacity: 1; }
+  .star-wrap { transform: translate(-50%, 10%) !important; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-hi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D98E"/><stop offset="1" stop-color="#C9963F"/></linearGradient>
+    <linearGradient id="g-lo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9873A"/><stop offset="1" stop-color="#7E5A22"/></linearGradient>
+    <symbol id="star" viewBox="0 0 100 100">
+      <path fill="url(#g-hi)" d="M50 50L50.0 2.0L52.1 44.9ZM50 50L65.6 34.4L55.1 47.9ZM50 50L98.0 50.0L55.1 52.1ZM50 50L65.6 65.6L52.1 55.1ZM50 50L50.0 98.0L47.9 55.1ZM50 50L34.4 65.6L44.9 52.1ZM50 50L2.0 50.0L44.9 47.9ZM50 50L34.4 34.4L47.9 44.9Z"/>
+      <path fill="url(#g-lo)" d="M50 50L50.0 2.0L47.9 44.9ZM50 50L65.6 34.4L52.1 44.9ZM50 50L98.0 50.0L55.1 47.9ZM50 50L65.6 65.6L55.1 52.1ZM50 50L50.0 98.0L52.1 55.1ZM50 50L34.4 65.6L47.9 55.1ZM50 50L2.0 50.0L44.9 52.1ZM50 50L34.4 34.4L44.9 47.9Z"/>
+    </symbol>
+    <symbol id="spark" viewBox="0 0 100 100"><path fill="currentColor" d="M50 0L56 44L100 50L56 56L50 100L44 56L0 50L44 44Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="ribbon"><div class="wrap"><span>Style option <b>3 of 3</b></span><span aria-hidden="true">·</span><span>Horizon</span><span aria-hidden="true">·</span><span>Prepared by Revvit</span></div></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="On the Verge Enrichment, home">
+      <img class="logo-light" src="otv-mark.png" alt="" width="520" height="364">
+      <img class="logo-dark" src="otv-mark-reverse.png" alt="" width="520" height="364">
+      <span>On the Verge<small>Enrichment</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a><a href="#programs">Programs</a><a href="#events">Events</a><a href="#connect">Connect</a>
+      <a class="btn" href="#give">Give</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav"><i></i>Menu</button>
+  </div>
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <div class="wrap">
+      <a href="#about">About</a><a href="#programs">Programs</a><a href="#events">Events</a><a href="#connect">Connect</a><a href="#give">Give</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="starfield" aria-hidden="true"></div>
+    <div class="wrap hero-top">
+      <p class="eyebrow">A faith-rooted enrichment ministry</p>
+      <h1 id="hero-title">Something new is <em>springing&nbsp;up.</em></h1>
+      <div class="hero-sub">
+        <div class="copy">
+          <p class="lede">On the Verge Enrichment walks with women, families and young people through teaching, mentoring and community, so the next season finds you rooted, ready and whole.</p>
+          <span class="need"><svg><use href="#spark"/></svg>Needed from you: confirm who you serve</span>
+          <div class="ctas">
+            <a class="btn" href="#events">Join the next gathering <span class="arr">→</span></a>
+            <a class="btn ghost" href="#about">Meet KD</a>
+          </div>
+        </div>
+        <div class="verse">
+          <q>See, I am doing a new thing! Now it springs up; do you not perceive it?</q>
+          <cite>Isaiah 43:19 · NIV</cite>
+          <span class="need"><svg><use href="#spark"/></svg>Needed from you: confirm anchor verse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="horizon" id="horizon" aria-hidden="true">
+      <div class="sky">
+        <div class="star-wrap" id="star">
+          <div class="star-glow"></div>
+          <svg viewBox="0 0 100 100"><use href="#star"/></svg>
+        </div>
+      </div>
+      <div class="horizon-line"></div>
+      <div class="below"></div>
+      <div class="horizon-meta"><div class="wrap"><span>The edge of your next season</span><span>Do you not perceive it?</span></div></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="photo rv">
+      <div class="frame r-pano">
+        <span class="need"><svg><use href="#spark"/></svg>Photo needed</span>
+        <svg class="mini-star" viewBox="0 0 100 100"><use href="#star"/></svg>
+      </div>
+      <figcaption><b>Hero photo.</b> KD speaking or praying with a small group, warm natural light. Her own photo or licensed stock.</figcaption>
+    </figure>
+  </div>
+
+  <section class="band plain" id="about" aria-labelledby="about-title">
+    <div class="wrap split">
+      <div class="label-col">
+        <div class="sticky label-col">
+          <p class="eyebrow">About</p>
+          <figure class="photo rv">
+            <div class="frame r-portrait">
+              <span class="need"><svg><use href="#spark"/></svg>Photo needed</span>
+              <svg class="mini-star" viewBox="0 0 100 100"><use href="#star"/></svg>
+            </div>
+            <figcaption><b>Portrait of KD.</b> Shoulders up, soft daylight, room to breathe around her.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div>
+        <h2 id="about-title" class="rv">The heart behind <em>the ministry</em></h2>
+        <div class="bio rv" style="margin-top:2rem">
+          <p>KD is a teacher, mentor and encourager who believes every person is closer to their breakthrough than they think. For years she has sat with women at kitchen tables, walked young people through hard choices and prayed with families who were ready for a new chapter.</p>
+          <p class="muted">On the Verge Enrichment gives that calling a home: a place to learn, grow and be sent out ready for whatever God is preparing next.</p>
+          <span class="need"><svg><use href="#spark"/></svg>Needed from you: your full name, title and a 120 to 200 word bio</span>
+        </div>
+        <div class="mission rv">
+          <p class="eyebrow">Our mission</p>
+          <blockquote>To enrich lives with the Word, practical wisdom and genuine community, helping people step boldly into <em>what God has prepared.</em></blockquote>
+          <span class="need"><svg><use href="#spark"/></svg>Needed from you: your mission statement</span>
+        </div>
+        <dl class="values rv">
+          <div><dt>Rooted in the Word</dt><dd>Everything we teach starts with Scripture.</dd></div>
+          <div><dt>Real community</dt><dd>No one grows alone. We walk together.</dd></div>
+          <div><dt>Ready for what's next</dt><dd>Practical steps for the season ahead.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="programs" aria-labelledby="programs-title">
+    <div class="wrap split">
+      <div class="label-col">
+        <div class="sticky label-col">
+          <p class="eyebrow">Programs</p>
+          <h2 id="programs-title">Ways to <em>grow</em> with us</h2>
+          <p class="muted">Four doors into the same house. Open one to see who it's for and how to get started.</p>
+          <span class="need"><svg><use href="#spark"/></svg>Needed from you: confirm your offerings</span>
+          <figure class="photo rv" style="margin-top:1rem">
+            <div class="frame r-wide">
+              <span class="need"><svg><use href="#spark"/></svg>Photo needed</span>
+              <svg class="mini-star" viewBox="0 0 100 100"><use href="#star"/></svg>
+            </div>
+            <figcaption><b>Women's circle.</b> Women of different ages and backgrounds with Bibles and coffee, mid-laugh.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="programs">
+        <details open>
+          <summary><div><h3>Enrichment Workshops</h3><p>Hands-on sessions on purpose, prayer, finances and family life.</p></div><span class="plus" aria-hidden="true"></span></summary>
+          <div class="prog-body">
+            <dl>
+              <div><dt>Who it's for</dt><dd>Anyone ready to put faith into practice in everyday life.</dd></div>
+              <div><dt>Format</dt><dd>Two-hour sessions, in person and online, with a take-home plan.</dd></div>
+            </dl>
+            <a class="text-link" href="#connect" data-interest="Workshop">Ask about workshops</a>
+          </div>
+        </details>
+        <details>
+          <summary><div><h3>Women's Circles</h3><p>Small-group mentoring and prayer for women in every season.</p></div><span class="plus" aria-hidden="true"></span></summary>
+          <div class="prog-body">
+            <dl>
+              <div><dt>Who it's for</dt><dd>Women who want honest friendship, accountability and prayer.</dd></div>
+              <div><dt>Format</dt><dd>Groups of eight to ten that meet twice a month.</dd></div>
+            </dl>
+            <a class="text-link" href="#connect" data-interest="Women's Circle">Find a circle</a>
+          </div>
+        </details>
+        <details>
+          <summary><div><h3>Youth &amp; Family Enrichment</h3><p>Programs that build confidence, character and faith in young people.</p></div><span class="plus" aria-hidden="true"></span></summary>
+          <div class="prog-body">
+            <dl>
+              <div><dt>Who it's for</dt><dd>Young people and the parents and guardians who love them.</dd></div>
+              <div><dt>Format</dt><dd>Saturday programs, family nights and seasonal camps.</dd></div>
+            </dl>
+            <a class="text-link" href="#connect" data-interest="Youth & Family">Get involved</a>
+          </div>
+        </details>
+        <details>
+          <summary><div><h3>Speaking &amp; Retreats</h3><p>KD ministers at churches, conferences and retreats. Book her for your event.</p></div><span class="plus" aria-hidden="true"></span></summary>
+          <div class="prog-body">
+            <dl>
+              <div><dt>Who it's for</dt><dd>Churches, women's ministries, conferences and leadership teams.</dd></div>
+              <div><dt>Format</dt><dd>Keynotes, workshop tracks and weekend retreats.</dd></div>
+            </dl>
+            <a class="text-link" href="#connect" data-interest="Book KD to speak">Book KD</a>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="events" aria-labelledby="events-title">
+    <div class="wrap">
+      <div class="events-head">
+        <div class="label-col">
+          <p class="eyebrow">Gatherings</p>
+          <h2 id="events-title">Come <em>as you are</em></h2>
+        </div>
+        <span class="need sample"><svg><use href="#spark"/></svg>Sample dates. Send us your real calendar</span>
+      </div>
+      <ol class="events">
+        <li class="event rv">
+          <div class="date"><span class="mo">Dec</span><span class="dd">13</span><span class="dw">Sat · 2026</span></div>
+          <div><h3>“Ready for the New” Women’s Brunch</h3><div class="meta"><span>10:00 AM</span><span>Fellowship Hall</span><span class="need"><svg><use href="#spark"/></svg>Needed from you: location</span></div></div>
+          <a class="btn ghost act" href="#connect" data-interest="Women's Circle">Save my seat</a>
+        </li>
+        <li class="event rv">
+          <div class="date"><span class="mo">Jan</span><span class="dd">08</span><span class="dw">Thu · 2027</span></div>
+          <div><h3>Purpose Workshop: Vision for 2027</h3><div class="meta"><span>6:30 PM</span><span>Online</span></div></div>
+          <a class="btn ghost act" href="#connect" data-interest="Workshop">Save my seat</a>
+        </li>
+        <li class="event rv">
+          <div class="date"><span class="mo">Feb</span><span class="dd">07</span><span class="dw">Sat · 2027</span></div>
+          <div><h3>Youth Enrichment Saturday</h3><div class="meta"><span>9:00 AM</span><span>Community Center</span></div></div>
+          <a class="btn ghost act" href="#connect" data-interest="Youth & Family">Save my seat</a>
+        </li>
+      </ol>
+      <figure class="photo rv" style="margin-top:3rem">
+        <div class="frame r-pano">
+          <span class="need"><svg><use href="#spark"/></svg>Photo needed</span>
+          <svg class="mini-star" viewBox="0 0 100 100"><use href="#star"/></svg>
+        </div>
+        <figcaption><b>A full fellowship hall.</b> A mixed-age, mixed-race congregation, all eyes forward, the room feeling full.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="voices-title">
+    <div class="wrap">
+      <div class="events-head">
+        <div class="label-col">
+          <p class="eyebrow" id="voices-title">In their words</p>
+        </div>
+        <span class="need sample"><svg><use href="#spark"/></svg>Sample words. Replace with real testimonies</span>
+      </div>
+      <div class="quotes" id="quotes" aria-roledescription="carousel">
+        <div class="quote-stage">
+          <figure class="quote on" aria-hidden="false"><p>I came to one workshop and left with a plan and a prayer partner. I’m not the same woman.</p><footer>Sister Renee M.</footer></figure>
+          <figure class="quote" aria-hidden="true"><p>KD has a way of making you believe the next chapter is already written.</p><footer>Marcus T.</footer></figure>
+          <figure class="quote" aria-hidden="true"><p>My daughter found her voice in the youth program.</p><footer>Angela &amp; David R.</footer></figure>
+        </div>
+        <div class="q-controls">
+          <div class="dots" role="group" aria-label="Choose a testimony">
+            <button class="dot" aria-label="Testimony 1" aria-current="true"></button>
+            <button class="dot" aria-label="Testimony 2" aria-current="false"></button>
+            <button class="dot" aria-label="Testimony 3" aria-current="false"></button>
+          </div>
+          <div class="arrows">
+            <button class="arrow" id="qPrev" aria-label="Previous testimony">←</button>
+            <button class="arrow" id="qNext" aria-label="Next testimony">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="connect" aria-labelledby="connect-title">
+    <div class="wrap split">
+      <div class="label-col">
+        <p class="eyebrow">Connect</p>
+        <h2 id="connect-title">Let’s walk this out <em>together</em></h2>
+        <p class="muted">Tell us where you are and what you’re praying for. KD or someone from the team will write back personally.</p>
+        <div class="contact-line">
+          <span class="k">Email</span>
+          <div class="email-row"><span class="email" id="email">kd@otvenrichment.com</span><button class="copy-btn" id="copyBtn" type="button">Copy</button></div>
+        </div>
+        <div class="contact-line">
+          <span class="k">Follow along</span>
+          <span class="need"><svg><use href="#spark"/></svg>Needed from you: Facebook, Instagram and YouTube handles</span>
+        </div>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="two">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field">
+          <label for="f-interest">I’m interested in</label>
+          <select id="f-interest" name="interest">
+            <option>Workshop</option><option>Women's Circle</option><option>Youth &amp; Family</option><option>Book KD to speak</option><option selected>Just saying hello</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">How can we pray or partner with you?</label><textarea id="f-msg" name="message"></textarea></div>
+        <div><button class="btn" type="submit">Send message <span class="arr">→</span></button></div>
+        <p class="form-note" id="formNote" hidden>Thanks. This demo form doesn’t send yet; it will reach KD once the site is built.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band give" id="give" aria-labelledby="give-title">
+    <div class="wrap give-grid">
+      <div class="label-col">
+        <p class="eyebrow">Give</p>
+        <h2 id="give-title">Sow into <em>what’s next</em></h2>
+        <p class="lede">Your gift funds workshops, scholarships for families and youth programs in our community.</p>
+      </div>
+      <div class="give-actions">
+        <div class="amounts" role="group" aria-label="Choose an amount">
+          <button class="chip" type="button" aria-pressed="false">$25</button>
+          <button class="chip" type="button" aria-pressed="true">$50</button>
+          <button class="chip" type="button" aria-pressed="false">$100</button>
+          <button class="chip" type="button" aria-pressed="false">Other</button>
+        </div>
+        <button class="btn" type="button" id="giveBtn">Give <span id="giveAmt">$50</span> <span class="arr">→</span></button>
+        <p class="form-note" id="giveNote" hidden>Online giving is connected when the site is built. Nothing is charged here.</p>
+        <span class="need"><svg><use href="#spark"/></svg>Needed from you: giving provider and 501(c)(3) status</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="logo-light" src="otv-logo.png" alt="On the Verge Enrichment" width="1000" height="627">
+        <img class="logo-dark" src="otv-logo-reverse.png" alt="On the Verge Enrichment" width="1000" height="627">
+      </div>
+      <nav aria-label="Footer"><a href="#about">About</a><a href="#programs">Programs</a><a href="#events">Events</a><a href="#connect">Connect</a><a href="#give">Give</a></nav>
+    </div>
+    <small style="margin-top:2.5rem"><span>© 2026 On the Verge Enrichment</span><span>Site by Revvit</span></small>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // mobile menu
+  var mb = document.getElementById('menuBtn'), mn = document.getElementById('mobileNav');
+  mb.addEventListener('click', function () { var open = mn.hidden; mn.hidden = !open; mb.setAttribute('aria-expanded', String(open)); });
+  mn.addEventListener('click', function (e) { if (e.target.tagName === 'A') { mn.hidden = true; mb.setAttribute('aria-expanded', 'false'); } });
+
+  // rising star over the horizon
+  var star = document.getElementById('star'), hz = document.getElementById('horizon');
+  function rise() {
+    if (reduce) return;
+    var r = hz.getBoundingClientRect(), vh = window.innerHeight || 800;
+    var p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height * 0.4)));
+    var start = 46, end = -38;
+    var y = start + (end - start) * Math.min(1, Math.max(0, (p - 0.35) / 0.55));
+    star.style.transform = 'translate(-50%,' + y.toFixed(1) + '%) rotate(' + (p * 45).toFixed(1) + 'deg)';
+  }
+  var tick = false;
+  window.addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(function () { rise(); tick = false; }); } }, { passive: true });
+  window.addEventListener('resize', rise); rise();
+
+  // gentle reveal: only items below the fold wait, everything is visible at rest
+  if (!reduce && 'IntersectionObserver' in window) {
+    var vh = window.innerHeight;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pending'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) { if (el.getBoundingClientRect().top > vh) { el.classList.add('pending'); io.observe(el); } });
+    setTimeout(function () { document.querySelectorAll('.rv.pending').forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.remove('pending'); }); }, 2500);
+  }
+
+  // testimonials
+  var qs = document.querySelectorAll('.quote'), ds = document.querySelectorAll('.dot'), qi = 0, timer;
+  function show(i) {
+    qi = (i + qs.length) % qs.length;
+    qs.forEach(function (q, k) { q.classList.toggle('on', k === qi); q.setAttribute('aria-hidden', k === qi ? 'false' : 'true'); });
+    ds.forEach(function (d, k) { d.setAttribute('aria-current', k === qi ? 'true' : 'false'); });
+  }
+  function auto() { clearInterval(timer); if (!reduce) timer = setInterval(function () { show(qi + 1); }, 7000); }
+  ds.forEach(function (d, k) { d.addEventListener('click', function () { show(k); auto(); }); });
+  document.getElementById('qPrev').addEventListener('click', function () { show(qi - 1); auto(); });
+  document.getElementById('qNext').addEventListener('click', function () { show(qi + 1); auto(); });
+  var qbox = document.getElementById('quotes');
+  qbox.addEventListener('mouseenter', function () { clearInterval(timer); });
+  qbox.addEventListener('mouseleave', auto);
+  auto();
+
+  // program / event links preselect interest
+  document.querySelectorAll('[data-interest]').forEach(function (a) {
+    a.addEventListener('click', function () { var s = document.getElementById('f-interest'); s.value = a.getAttribute('data-interest'); });
+  });
+
+  // contact form (demo)
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); document.getElementById('formNote').hidden = false;
+  });
+
+  // copy email
+  var cb = document.getElementById('copyBtn');
+  cb.addEventListener('click', function () {
+    var t = document.getElementById('email').textContent;
+    function sel() { var r = document.createRange(); r.selectNodeContents(document.getElementById('email')); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); cb.textContent = 'Selected'; }
+    try {
+      navigator.clipboard.writeText(t).then(function () { cb.textContent = 'Copied'; }, sel);
+    } catch (err) { sel(); }
+    setTimeout(function () { cb.textContent = 'Copy'; }, 2200);
+  });
+
+  // giving chips
+  var chips = document.querySelectorAll('.chip'), amt = document.getElementById('giveAmt');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      amt.textContent = c.textContent === 'Other' ? 'your gift' : c.textContent;
+    });
+  });
+  document.getElementById('giveBtn').addEventListener('click', function () { document.getElementById('giveNote').hidden = false; });
+})();
+</script>

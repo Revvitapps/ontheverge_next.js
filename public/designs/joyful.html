@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#4A1F4F">
+<meta name="description" content="Style option 2 for On the Verge Enrichment: warm, vibrant and celebratory.">
+<meta property="og:title" content="On the Verge Enrichment · Joyful">
+<meta property="og:description" content="Style option 2 for On the Verge Enrichment: warm, vibrant and celebratory.">
+<meta property="og:image" content="/assets/otv-logo.png">
+<link rel="icon" href="/assets/otv-mark.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/otv-mark.png">
+<title>On the Verge Enrichment | Joyful</title>
+<style id="otv-reset">
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px/1.5 system-ui,-apple-system,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+.otv-back{position:fixed;z-index:9999;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem .6rem .8rem;border-radius:999px;background:rgba(11,31,41,.92);color:#F6F3EC;font:500 12px/1 "Jost",system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(217,180,101,.55);box-shadow:0 8px 24px rgba(11,31,41,.25);backdrop-filter:blur(6px);transition:transform .2s,background .2s}
+.otv-back:hover{transform:translateY(-2px);background:#13303E}
+.otv-back svg{width:12px;height:12px}
+@media print{.otv-back{display:none}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..900,0..100;1,9..144,400..900,0..100&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: Sunday-best celebration. Stole-striped hero with a stained-glass arch, then full-bleed color bands
+   that alternate like choir robes in procession; quiet warm ground between them. */
+:root{
+  --ground:#FFF7EC;      /* warm light ground */
+  --surface:#FFFDF9;     /* raised paper */
+  --text:#13303E;        /* logo navy as ink */
+  --muted:#5B5560;
+  --line:rgba(19,48,62,.14);
+  --navy:#13303E;        /* band */
+  --gold:#BC9045;        /* logo gold */
+  --gold-hi:#D9B465;
+  --aub:#4A1F4F;         /* royal aubergine, choir robe */
+  --mari:#E9A23B;        /* marigold */
+  --clay:#C4553A;        /* sunset clay */
+  --rose:#F3D9CF;        /* rose dust */
+  --on-band:#FFF4E4;     /* ivory text on dark bands */
+  --need-ink:#9A3B26;
+  --need-bg:rgba(196,85,58,.08);
+  --ph-a:#F7D9A8; --ph-b:#E9A9A0; --ph-c:#C98AB8;
+  --show-light:block; --show-dark:none;
+  --f-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:"Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --step--1:clamp(.8rem,.78rem + .1vw,.875rem);
+  --step-0:clamp(1rem,.96rem + .2vw,1.125rem);
+  --step-1:clamp(1.25rem,1.1rem + .6vw,1.6rem);
+  --step-2:clamp(1.6rem,1.3rem + 1.4vw,2.5rem);
+  --step-3:clamp(2.2rem,1.6rem + 3vw,4rem);
+  --step-4:clamp(3.2rem,2rem + 7vw,8.5rem);
+  --wrap:1240px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#1A1220; --surface:#231929; --text:#FBEFDD; --muted:#CDBBB3; --line:rgba(251,239,221,.14);
+    --navy:#0E2631; --gold:#D2A854; --gold-hi:#E8C77A; --aub:#5C2862; --mari:#E9A23B; --clay:#D2654B; --rose:#33212E;
+    --on-band:#FFF4E4; --need-ink:#F2A58F; --need-bg:rgba(242,165,143,.1);
+    --ph-a:#5A3A2A; --ph-b:#5B2F3A; --ph-c:#3E2550;
+    --show-light:none; --show-dark:block; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1A1220; --surface:#231929; --text:#FBEFDD; --muted:#CDBBB3; --line:rgba(251,239,221,.14);
+  --navy:#0E2631; --gold:#D2A854; --gold-hi:#E8C77A; --aub:#5C2862; --mari:#E9A23B; --clay:#D2654B; --rose:#33212E;
+  --on-band:#FFF4E4; --need-ink:#F2A58F; --need-bg:rgba(242,165,143,.1);
+  --ph-a:#5A3A2A; --ph-b:#5B2F3A; --ph-c:#3E2550;
+  --show-light:none; --show-dark:block; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--ground);color:var(--text);font-family:var(--f-body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ground)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mari);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0;font-variation-settings:"SOFT" 60}
+p{margin:0}
+.eyebrow{font-family:var(--f-body);font-weight:500;font-size:var(--step--1);letter-spacing:.24em;text-transform:uppercase}
+.logo-light{display:var(--show-light)} .logo-dark{display:var(--show-dark)}
+
+/* need-from-you + photo tags */
+.need{display:inline-flex;align-items:center;gap:.5em;font-size:.78rem;font-weight:500;letter-spacing:.02em;line-height:1.3;color:var(--need-ink);background:var(--need-bg);border:1px dashed currentColor;border-radius:999px;padding:.3em .85em}
+.need::before{content:"";width:.55em;height:.55em;flex:none;background:currentColor;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.on-band .need{color:var(--on-band);background:rgba(255,244,228,.1)}
+.sample{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay)}
+
+/* ribbon + header */
+.ribbon{background:var(--aub);color:var(--on-band);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding-block:.55rem}
+.ribbon b{color:var(--mari);font-weight:600}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.brand img{height:46px;width:auto}
+nav.main ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+nav.main a{text-decoration:none;font-size:.95rem;font-weight:500;position:relative}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:2px;background:var(--clay);transition:right .25s}
+nav.main a:hover::after{right:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font:600 .95rem/1 var(--f-body);letter-spacing:.04em;text-decoration:none;border-radius:999px;padding:.95em 1.5em;border:2px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-clay{background:var(--clay);color:#FFF4E4}
+.btn-ghost{border-color:currentColor;background:transparent;color:inherit}
+.btn-mari{background:var(--mari);color:#2A1630}
+.menu-btn{display:none;background:none;border:2px solid var(--line);color:var(--text);border-radius:999px;padding:.55em .9em;font:600 .85rem var(--f-body);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.head-cta{display:inline-flex}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex}
+  .head-cta{display:none}
+  nav.main{position:absolute;left:0;right:0;top:100%;background:var(--ground);border-bottom:1px solid var(--line);display:none}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column;gap:0;padding:.5rem max(16px,env(safe-area-inset-right,0px)) 1rem max(16px,env(safe-area-inset-left,0px))}
+  nav.main li a{display:block;padding:.8rem 0;font-family:var(--f-display);font-size:1.5rem;font-weight:700;border-bottom:1px solid var(--line)}
+  nav.main a::after{display:none}
+  .brand img{height:38px}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:clamp(2.5rem,6vw,5.5rem) clamp(3rem,6vw,5rem)}
+.hero-grid{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-size:var(--step-4);font-weight:900;line-height:.9;letter-spacing:-.03em;font-variation-settings:"SOFT" 100,"WONK" 1}
+.hero h1 span{display:block}
+.hero h1 .l2{color:var(--clay);font-style:italic;font-weight:700;padding-left:.35em}
+.hero h1 .l3{color:var(--aub)}
+:root[data-theme="dark"] .hero h1 .l3{color:var(--mari)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero h1 .l3{color:var(--mari)}}
+.hero h1 .dot{color:var(--gold)}
+.hero .lede{max-width:34ch;font-size:var(--step-1);line-height:1.45;margin-top:1.6rem;color:var(--text)}
+.hero .eyebrow{color:var(--clay);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem}
+.hero .eyebrow::before{content:"";width:38px;height:2px;background:currentColor}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero .need{margin-top:1.2rem}
+
+.window{position:relative;max-width:460px;margin-inline:auto;width:100%}
+.stoles{position:absolute;inset:6% -8% -4% -8%;display:flex;justify-content:center;gap:clamp(8px,1.4vw,14px);z-index:0}
+.stoles i{display:block;width:clamp(26px,4.6vw,46px);border-radius:0 0 22px 22px;transform-origin:top;animation:sway 7s ease-in-out infinite}
+.stoles i:nth-child(1){background:var(--aub);height:92%;animation-delay:-1s}
+.stoles i:nth-child(2){background:var(--mari);height:78%;animation-delay:-2.5s}
+.stoles i:nth-child(3){background:var(--clay);height:100%;animation-delay:-.4s}
+.stoles i:nth-child(4){background:var(--gold);height:70%;animation-delay:-3.2s}
+.stoles i:nth-child(5){background:var(--navy);height:86%;animation-delay:-1.8s}
+.stoles i:nth-child(6){background:var(--rose);height:64%;animation-delay:-4s}
+@keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+.arch{position:relative;z-index:1;aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 18px 18px;border:10px solid var(--surface);box-shadow:0 30px 60px -30px rgba(74,31,79,.55);overflow:hidden}
+
+/* photo placeholder */
+.ph{position:relative;width:100%;height:100%;min-height:220px;display:flex;align-items:flex-end;padding:1.2rem;color:#2A1630;
+  background:
+   radial-gradient(120% 70% at 50% -10%,rgba(255,255,255,.7),transparent 55%),
+   conic-gradient(from 200deg at 50% 0%,var(--ph-a),var(--ph-b),var(--ph-c),var(--ph-a));
+}
+.ph::before{content:"";position:absolute;inset:0;opacity:.35;background:
+   repeating-linear-gradient(90deg,transparent 0 22%,rgba(255,255,255,.55) 22% 22.6%),
+   repeating-linear-gradient(0deg,transparent 0 28%,rgba(255,255,255,.4) 28% 28.6%);mix-blend-mode:soft-light}
+.ph .star{position:absolute;top:16%;left:50%;width:54px;translate:-50% 0;opacity:.75;filter:drop-shadow(0 0 18px rgba(255,236,190,.9))}
+.ph figcaption{position:relative;background:rgba(255,250,242,.9);border-radius:14px;padding:.75rem .9rem;font-size:.85rem;line-height:1.35;max-width:30ch;color:#2A1630}
+.ph figcaption b{display:inline-block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#9A3B26;margin-bottom:.25rem}
+.ph.v2{--ph-a:#F1B680;--ph-b:#C4553A;--ph-c:#4A1F4F}
+.ph.v3{--ph-a:#F3D9CF;--ph-b:#E9A23B;--ph-c:#BC9045}
+.ph.v4{--ph-a:#7FA3B1;--ph-b:#13303E;--ph-c:#4A1F4F}
+.ph.v2 figcaption,.ph.v4 figcaption{background:rgba(255,250,242,.94)}
+
+.verse{margin-top:2.2rem;display:flex;gap:1rem;align-items:flex-start;max-width:44ch}
+.verse img{width:34px;flex:none;margin-top:.2rem}
+.verse blockquote{margin:0;font-family:var(--f-display);font-style:italic;font-size:var(--step-1);line-height:1.35;font-weight:500}
+.verse cite{display:block;font-family:var(--f-body);font-style:normal;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-top:.5rem;color:var(--muted)}
+
+/* marquee */
+.marquee{background:var(--aub);color:var(--on-band);overflow:hidden;padding-block:1.1rem;border-block:4px solid var(--mari)}
+.marquee-track{display:flex;width:max-content;animation:roll 38s linear infinite}
+.marquee span{font-family:var(--f-display);font-style:italic;font-weight:600;font-size:clamp(1.8rem,1.2rem + 2.6vw,3.4rem);white-space:nowrap;padding-inline:.6em;display:inline-flex;align-items:center;gap:1.2em}
+.marquee span::after{content:"";width:.5em;height:.5em;background:var(--mari);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* sections */
+section.block{padding-block:clamp(4rem,9vw,7.5rem)}
+.sec-head{display:grid;gap:1rem;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.sec-head .eyebrow{color:var(--clay)}
+.sec-head h2{font-size:var(--step-3)}
+
+/* about */
+.about-grid{display:grid;gap:clamp(2rem,5vw,5rem);align-items:start}
+@media (min-width:900px){.about-grid{grid-template-columns:.8fr 1.2fr}}
+.portrait{position:relative;isolation:isolate;max-width:440px}
+.arch .ph,.portrait .ph{height:100%}
+.portrait .frame{aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden}
+.portrait::after{content:"";position:absolute;inset:auto -14px -14px 24px;height:60%;border:3px solid var(--gold);border-top:0;border-radius:0 0 24px 24px;z-index:-1}
+.about-copy h2{font-size:var(--step-3)}
+.about-copy h2 em{color:var(--clay);font-weight:700}
+.about-copy .bio{display:grid;gap:1rem;margin-top:1.6rem;max-width:60ch}
+.about-copy .bio p:first-child::first-letter{font-family:var(--f-display);font-weight:900;float:left;font-size:3.6em;line-height:.8;padding:.06em .1em 0 0;color:var(--aub)}
+.mission{margin-top:2.2rem;padding:1.6rem 1.8rem;background:var(--rose);border-radius:24px;position:relative}
+.mission .eyebrow{color:var(--clay)}
+.mission p.big{font-family:var(--f-display);font-size:var(--step-2);font-weight:600;line-height:1.15;margin-top:.6rem}
+.values{display:grid;gap:1rem;margin-top:2rem}
+@media (min-width:640px){.values{grid-template-columns:repeat(3,1fr)}}
+.value{display:flex;gap:.9rem;align-items:stretch}
+.value i{width:10px;border-radius:0 0 8px 8px;flex:none}
+.value:nth-child(1) i{background:var(--aub)} .value:nth-child(2) i{background:var(--mari)} .value:nth-child(3) i{background:var(--clay)}
+.value h3{font-size:1.25rem;font-weight:700}
+.value p{font-size:.95rem;color:var(--muted);margin-top:.25rem}
+
+/* programs bands */
+.programs-intro{padding-block:clamp(4rem,9vw,7rem) 2.5rem}
+.band{color:var(--on-band)}
+.band-in{display:grid;gap:clamp(1.6rem,4vw,4rem);align-items:center;padding-block:clamp(3rem,7vw,5.5rem)}
+@media (min-width:900px){.band-in{grid-template-columns:1fr 1fr}.band.flip .band-in .band-media{order:-1}}
+.band.b1{background:var(--aub)} .band.b2{background:var(--mari);color:#2A1630} .band.b3{background:var(--clay)} .band.b4{background:var(--navy)}
+.band .kicker{font-family:var(--f-body);font-weight:500;letter-spacing:.22em;text-transform:uppercase;font-size:.8rem;opacity:.85}
+.band h3{font-size:var(--step-3);font-weight:800;margin-top:.6rem}
+.band h3 em{font-weight:600}
+.band p.desc{font-size:var(--step-1);line-height:1.45;margin-top:1rem;max-width:32ch}
+.band .who{margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.band .who span{font-size:.82rem;border:1px solid currentColor;border-radius:999px;padding:.3em .8em;opacity:.9}
+.band .btn{margin-top:1.8rem}
+.band.b2 .btn-ghost{color:#2A1630}
+.band-media .ph{border-radius:28px;aspect-ratio:5/4;min-height:0}
+.band.b1 .band-media .ph{border-radius:999px 999px 28px 28px;aspect-ratio:4/5;max-width:420px;margin-inline:auto}
+.band.b3 .band-media .ph{border-radius:999px 999px 28px 28px;aspect-ratio:4/5;max-width:420px;margin-inline:auto}
+.band .need{margin-top:1.2rem}
+
+/* events */
+.events-list{display:grid;gap:0;border-top:2px solid var(--text)}
+.event{display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2.5rem);align-items:center;padding-block:1.6rem;border-bottom:1px solid var(--line)}
+@media (min-width:760px){.event{grid-template-columns:auto 1fr auto}}
+.date{display:grid;place-items:center;width:clamp(78px,12vw,104px);aspect-ratio:1;border-radius:50% 50% 14px 14px;background:var(--aub);color:var(--on-band);text-align:center;line-height:1}
+.event:nth-child(2) .date{background:var(--clay)} .event:nth-child(3) .date{background:var(--navy)}
+.date b{font-family:var(--f-display);font-size:clamp(1.9rem,1.4rem + 1.8vw,2.8rem);font-weight:800;display:block}
+.date small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.event h3{font-size:var(--step-1);font-weight:700}
+.event .meta{color:var(--muted);font-size:.95rem;margin-top:.3rem;font-variant-numeric:tabular-nums}
+.event .actions{grid-column:1/-1}
+@media (min-width:760px){.event .actions{grid-column:auto}}
+.plan{background:none;border:2px solid var(--text);color:var(--text);border-radius:999px;padding:.7em 1.2em;font:600 .88rem var(--f-body);cursor:pointer;transition:.2s}
+.plan[aria-pressed="true"]{background:var(--text);color:var(--ground)}
+.events-foot{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-top:1.6rem}
+
+/* testimonials */
+.voices{background:var(--rose);position:relative;overflow:hidden}
+.voices::before{content:"\201C";position:absolute;font-family:var(--f-display);font-weight:900;font-size:clamp(14rem,30vw,28rem);line-height:1;top:-.12em;left:-.02em;color:var(--clay);opacity:.14;pointer-events:none}
+.carousel{position:relative;touch-action:pan-y}
+.slides{display:grid}
+.slide{grid-area:1/1;transition:opacity .6s ease,transform .6s ease;opacity:0;transform:translateX(30px);visibility:hidden}
+.slide.on{opacity:1;transform:none;visibility:visible}
+.slide blockquote{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(1.7rem,1.1rem + 2.8vw,3.6rem);line-height:1.12;letter-spacing:-.01em;max-width:22ch}
+.slide blockquote em{color:var(--clay)}
+.slide figcaption{margin-top:1.6rem;display:flex;align-items:center;gap:.8rem;font-weight:500}
+.slide figcaption::before{content:"";width:40px;height:2px;background:var(--gold)}
+.car-ctrl{display:flex;align-items:center;gap:1rem;margin-top:2.4rem;flex-wrap:wrap}
+.car-ctrl button.arrow{width:52px;height:52px;border-radius:50%;border:2px solid var(--text);background:transparent;color:var(--text);font-size:1.2rem;cursor:pointer}
+.car-ctrl button.arrow:hover{background:var(--text);color:var(--rose)}
+.dots{display:flex;gap:.5rem}
+.dots button{width:12px;height:12px;border-radius:50%;border:2px solid var(--text);background:transparent;padding:0;cursor:pointer}
+.dots button[aria-current="true"]{background:var(--clay);border-color:var(--clay);width:30px;border-radius:999px}
+
+/* connect */
+.connect-grid{display:grid;gap:clamp(2rem,5vw,5rem)}
+@media (min-width:900px){.connect-grid{grid-template-columns:.9fr 1.1fr}}
+.connect h2{font-size:var(--step-3)}
+.connect h2 em{color:var(--clay)}
+.contact-lines{display:grid;gap:1rem;margin-top:2rem}
+.contact-lines .lbl{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.email{font-family:var(--f-display);font-size:var(--step-1);font-weight:600;user-select:all;overflow-wrap:anywhere}
+.copy{background:none;border:1px solid var(--line);color:var(--text);border-radius:999px;padding:.35em .9em;font:500 .8rem var(--f-body);cursor:pointer}
+form.card{background:var(--surface);border-radius:28px;padding:clamp(1.4rem,4vw,2.6rem);box-shadow:0 1px 0 var(--line),0 40px 80px -50px rgba(74,31,79,.5);display:grid;gap:1.1rem;border-top:8px solid var(--mari)}
+.field{display:grid;gap:.4rem;min-width:0}
+.field label{font-size:.82rem;font-weight:600;letter-spacing:.06em}
+.field input,.field select,.field textarea{font:inherit;color:var(--text);background:var(--ground);border:1.5px solid var(--line);border-radius:14px;padding:.85em 1em;width:100%}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--clay);box-shadow:0 0 0 4px rgba(196,85,58,.15)}
+.two{display:grid;gap:1.1rem}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.form-msg{border-radius:14px;padding:.9rem 1rem;background:var(--rose);font-weight:500}
+
+/* give */
+.give{background:var(--navy);color:var(--on-band);position:relative;overflow:hidden}
+.give::after{content:"";position:absolute;right:-10%;top:-30%;width:60%;aspect-ratio:1;background:radial-gradient(circle,rgba(233,162,59,.28),transparent 60%);pointer-events:none}
+.give-grid{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center;position:relative;z-index:1}
+@media (min-width:900px){.give-grid{grid-template-columns:1.1fr .9fr}}
+.give h2{font-size:var(--step-4);font-weight:900;line-height:.92}
+.give h2 em{color:var(--mari);font-weight:700}
+.give p.lead{font-size:var(--step-1);max-width:36ch;margin-top:1.2rem;opacity:.92}
+.give-panel{background:rgba(255,244,228,.06);border:1px solid rgba(255,244,228,.18);border-radius:28px;padding:clamp(1.4rem,4vw,2.4rem)}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+.chip{font:600 1.15rem var(--f-body);color:var(--on-band);background:transparent;border:2px solid rgba(255,244,228,.4);border-radius:999px;padding:.6em 1.3em;cursor:pointer;font-variant-numeric:tabular-nums;transition:.2s}
+.chip[aria-pressed="true"]{background:var(--mari);border-color:var(--mari);color:#2A1630}
+.give-panel .btn{width:100%;margin-top:1.4rem}
+.give-msg{margin-top:1rem;font-size:.95rem;opacity:.9}
+.give-panel .need{margin-top:1.2rem}
+
+/* footer */
+footer{background:var(--aub);color:var(--on-band);padding-block:3.5rem 2.2rem}
+.foot-grid{display:grid;gap:2rem;align-items:start}
+@media (min-width:760px){.foot-grid{grid-template-columns:1.2fr 1fr 1fr}}
+footer img{width:min(300px,80%)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+footer a{text-decoration:none;opacity:.9} footer a:hover{opacity:1;text-decoration:underline}
+footer .small{font-size:.82rem;opacity:.75;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,244,228,.16);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.footer-h{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mari);margin-bottom:.8rem}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+
+
+</head>
+<body>
+<div class="ribbon">Style option 2 of 3 · <b>Joyful</b> · Prepared by Revvit</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="On the Verge Enrichment, home">
+      <img class="logo-light" src="/assets/otv-logo.png" alt="On the Verge Enrichment">
+      <img class="logo-dark" src="/assets/otv-logo-reverse.png" alt="On the Verge Enrichment">
+    </a>
+    <nav class="main" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#voices">Stories</a></li>
+        <li><a href="#connect">Connect</a></li>
+        <li><a href="#give">Give</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-clay head-cta" href="#events">Join a gathering</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">A faith-rooted enrichment ministry</p>
+        <h1><span>You are</span><span class="l2">on the</span><span class="l3">verge<span class="dot">.</span></span></h1>
+        <p class="lede">On the Verge Enrichment walks with women, families and young people through teaching, mentoring and community, so the next season finds you rooted, ready and whole.</p>
+        <span class="need">Needed from you: confirm who you serve</span>
+        <div class="cta-row">
+          <a class="btn btn-clay" href="#events">Join the next gathering</a>
+          <a class="btn btn-ghost" href="#about">Meet KD</a>
+        </div>
+        <div class="verse">
+          <img class="logo-light" src="/assets/otv-mark.png" alt="">
+          <img class="logo-dark" src="/assets/otv-mark-reverse.png" alt="">
+          <div>
+            <blockquote>"See, I am doing a new thing! Now it springs up; do you not perceive it?"</blockquote>
+            <cite>Isaiah 43:19 · Suggested anchor verse</cite>
+          </div>
+        </div>
+      </div>
+      <div class="window">
+        <div class="stoles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <figure class="arch" style="margin:0">
+          <div class="ph">
+            <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FFF3D6" d="M50 0 58 40 100 50 58 60 50 100 42 60 0 50 42 40Z"/></svg>
+            <figcaption><b>Photo needed</b><br>KD speaking or praying with a small group, warm natural light</figcaption>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Rooted</span><span>Ready</span><span>Restored</span><span>Rising</span><span>Rooted</span><span>Ready</span><span>Restored</span><span>Rising</span>
+      <span>Rooted</span><span>Ready</span><span>Restored</span><span>Rising</span><span>Rooted</span><span>Ready</span><span>Restored</span><span>Rising</span>
+    </div>
+  </div>
+
+  <section class="block" id="about">
+    <div class="wrap about-grid">
+      <div class="portrait">
+        <figure class="frame" style="margin:0">
+          <div class="ph v3" style="height:100%">
+            <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FFF3D6" d="M50 0 58 40 100 50 58 60 50 100 42 60 0 50 42 40Z"/></svg>
+            <figcaption><b>Photo needed</b><br>A warm portrait of KD</figcaption>
+          </div>
+        </figure>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow" style="color:var(--clay)">The heart behind the ministry</p>
+        <h2 style="margin-top:1rem">Meet <em>KD</em></h2>
+        <span class="need" style="margin-top:1rem">Needed from you: full name and title as you'd like it shown</span>
+        <div class="bio">
+          <p>KD is a teacher, mentor and encourager who believes every person is closer to their breakthrough than they think. She has spent years pouring into women, young people and families, in classrooms, living rooms and fellowship halls.</p>
+          <p>On the Verge Enrichment grew from that calling: a place to be fed by the Word, sharpened with practical wisdom and surrounded by people who will celebrate your next season with you.</p>
+        </div>
+        <span class="need" style="margin-top:1rem">Needed from you: your bio (120 to 200 words) and a portrait</span>
+        <div class="mission">
+          <p class="eyebrow">Our mission</p>
+          <p class="big">To enrich lives with the Word, practical wisdom and genuine community, helping people step boldly into what God has prepared.</p>
+          <span class="need" style="margin-top:1rem">Needed from you: your mission statement</span>
+        </div>
+        <div class="values">
+          <div class="value"><i></i><div><h3>Rooted in the Word</h3><p>Scripture at the center of everything we teach.</p></div></div>
+          <div class="value"><i></i><div><h3>Real community</h3><p>Nobody walks into a new season alone.</p></div></div>
+          <div class="value"><i></i><div><h3>Ready for what's next</h3><p>Practical steps you can take on Monday.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="programs">
+    <div class="wrap programs-intro">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">Ways to grow with us</p>
+        <h2>Every season has a place to begin.</h2>
+        <span class="need">Needed from you: confirm your actual offerings</span>
+      </div>
+    </div>
+
+    <section class="band b1 on-band">
+      <div class="wrap band-in">
+        <div>
+          <p class="kicker">Workshops</p>
+          <h3>Enrichment <em>Workshops</em></h3>
+          <p class="desc">Hands-on sessions on purpose, prayer, finances and family life. Come with questions, leave with a plan.</p>
+          <div class="who"><span>Adults</span><span>In person &amp; online</span></div>
+          <a class="btn btn-mari" href="#connect" data-interest="Workshop">Ask about workshops</a>
+        </div>
+        <div class="band-media">
+          <figure class="ph v2" style="margin:0">
+            <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FFF3D6" d="M50 0 58 40 100 50 58 60 50 100 42 60 0 50 42 40Z"/></svg>
+            <figcaption><b>Photo needed</b><br>A full fellowship hall, mixed ages and backgrounds, leaning in</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b2 flip">
+      <div class="wrap band-in">
+        <div>
+          <p class="kicker">Circles</p>
+          <h3>Women's <em>Circles</em></h3>
+          <p class="desc">Small-group mentoring and prayer for women in every season, from new mothers to new grandmothers.</p>
+          <div class="who"><span>Women</span><span>Small groups</span></div>
+          <a class="btn btn-ghost" href="#connect" data-interest="Women's Circle">Find a circle</a>
+        </div>
+        <div class="band-media">
+          <figure class="ph v3" style="margin:0">
+            <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FFF3D6" d="M50 0 58 40 100 50 58 60 50 100 42 60 0 50 42 40Z"/></svg>
+            <figcaption><b>Photo needed</b><br>Women in a circle with Bibles and coffee</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b3 on-band">
+      <div class="wrap band-in">
+        <div>
+          <p class="kicker">Youth &amp; family</p>
+          <h3>Youth &amp; Family <em>Enrichment</em></h3>
+          <p class="desc">Programs that build confidence, character and faith in young people, with the whole family invited in.</p>
+          <div class="who"><span>Ages 10 to 18</span><span>Parents welcome</span></div>
+          <a class="btn btn-mari" href="#connect" data-interest="Youth & Family">Bring your family</a>
+        </div>
+        <div class="band-media">
+          <figure class="ph v4" style="margin:0">
+            <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FFF3D6" d="M50 0 58 40 100 50 58 60 50 100 42 60 0 50 42 40Z"/></svg>
+            <figcaption><b>Photo needed</b><br>A diverse group of teens laughing together</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band b4 flip on-band">
+      <div class="wrap band-in">
+        <div>
+          <p class="kicker">Speaking</p>
+          <h3>Speaking &amp; <em>Retreats</em></h3>
+          <p class="desc">KD ministers at churches, conferences and retreats. Book her for your women's day, youth weekend or leadership gathering.</p>
+          <div class="who"><span>Churches</span><span>Conferences</span><span>Retreats</span></div>
+          <a class="btn btn-mari" href="#connect" data-interest="Book KD to speak">Book KD</a>
+        </div>
+        <div class="band-media">
+          <figure class="ph" style="margin:0">
+            <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#FFF3D6" d="M50 0 58 40 100 50 58 60 50 100 42 60 0 50 42 40Z"/></svg>
+            <figcaption><b>Photo needed</b><br>KD at the podium, a family at a table in the background</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="block" id="events">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Mark your calendar</p>
+        <h2>Come as you are. Save a seat.</h2>
+        <p class="sample">Sample dates · replace with your real events</p>
+      </div>
+      <div class="events-list">
+        <article class="event">
+          <div class="date"><div><b>13</b><small>Dec</small></div></div>
+          <div><h3>"Ready for the New" Women's Brunch</h3><p class="meta">Sat, Dec 13, 2026 · 10:00 AM · Fellowship Hall</p><span class="need" style="margin-top:.6rem">Needed from you: location</span></div>
+          <div class="actions"><button class="plan" aria-pressed="false" data-id="e1">Add to my plans</button></div>
+        </article>
+        <article class="event">
+          <div class="date"><div><b>8</b><small>Jan</small></div></div>
+          <div><h3>Purpose Workshop: Vision for 2027</h3><p class="meta">Thu, Jan 8, 2027 · 6:30 PM · Online</p></div>
+          <div class="actions"><button class="plan" aria-pressed="false" data-id="e2">Add to my plans</button></div>
+        </article>
+        <article class="event">
+          <div class="date"><div><b>7</b><small>Feb</small></div></div>
+          <div><h3>Youth Enrichment Saturday</h3><p class="meta">Sat, Feb 7, 2027 · 9:00 AM · Community Center</p></div>
+          <div class="actions"><button class="plan" aria-pressed="false" data-id="e3">Add to my plans</button></div>
+        </article>
+      </div>
+      <div class="events-foot">
+        <p style="color:var(--muted)">Want to host a gathering at your church? KD would love to hear from you.</p>
+        <a class="btn btn-clay" href="#connect">Invite KD</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block voices" id="voices">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Stories from the circle</p>
+        <p class="sample">Sample words · replace with real testimonies</p>
+      </div>
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Testimonies">
+        <div class="slides">
+          <figure class="slide on" aria-roledescription="slide" aria-label="1 of 3">
+            <blockquote>"I came to one workshop and left with a plan and a prayer partner. <em>I'm not the same woman.</em>"</blockquote>
+            <figcaption>Sister Renee M.</figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="slide" aria-label="2 of 3">
+            <blockquote>"KD has a way of making you believe <em>the next chapter is already written.</em>"</blockquote>
+            <figcaption>Marcus T.</figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="slide" aria-label="3 of 3">
+            <blockquote>"My daughter <em>found her voice</em> in the youth program."</blockquote>
+            <figcaption>Angela &amp; David R.</figcaption>
+          </figure>
+        </div>
+        <div class="car-ctrl">
+          <button class="arrow" id="prev" aria-label="Previous story">&#8592;</button>
+          <button class="arrow" id="next" aria-label="Next story">&#8594;</button>
+          <div class="dots" id="dots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block connect" id="connect">
+    <div class="wrap connect-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--clay)">Connect</p>
+        <h2 style="margin-top:1rem">Let's walk this out <em>together.</em></h2>
+        <p style="margin-top:1.2rem;max-width:44ch;color:var(--muted)">Whether you need prayer, want to join a circle or hope to bring KD to your church, send a note. Every message is read personally.</p>
+        <div class="contact-lines">
+          <div>
+            <p class="lbl">Email</p>
+            <div class="email-row"><span class="email" id="email">kd@otvenrichment.com</span><button class="copy" id="copyBtn" type="button">Copy</button></div>
+          </div>
+          <div>
+            <p class="lbl">Follow along</p>
+            <span class="need" style="margin-top:.4rem">Needed from you: Facebook, Instagram and YouTube handles</span>
+          </div>
+        </div>
+      </div>
+      <form class="card" id="contactForm" novalidate>
+        <div class="two">
+          <div class="field"><label for="cf-name">Your name</label><input id="cf-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="field">
+          <label for="cf-interest">I'm interested in</label>
+          <select id="cf-interest" name="interest">
+            <option>Workshop</option><option>Women's Circle</option><option>Youth &amp; Family</option><option>Book KD to speak</option><option>Just saying hello</option>
+          </select>
+        </div>
+        <div class="field"><label for="cf-msg">How can we pray or partner with you?</label><textarea id="cf-msg" name="message"></textarea></div>
+        <button class="btn btn-clay" type="submit">Send my note</button>
+        <p class="form-msg" id="formMsg" role="status" hidden>Thanks, this demo form doesn't send yet. On the live site your note goes straight to KD.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="block give on-band" id="give">
+    <div class="wrap give-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--mari)">Give</p>
+        <h2 style="margin-top:1rem">Sow into <em>what's next.</em></h2>
+        <p class="lead">Your gift funds workshops, scholarships for families and youth programs right here in our community.</p>
+      </div>
+      <div class="give-panel">
+        <p class="eyebrow" style="color:var(--mari)">Choose an amount</p>
+        <div class="chips" role="group" aria-label="Gift amount">
+          <button class="chip" type="button" aria-pressed="false">$25</button>
+          <button class="chip" type="button" aria-pressed="true">$50</button>
+          <button class="chip" type="button" aria-pressed="false">$100</button>
+          <button class="chip" type="button" aria-pressed="false">Other</button>
+        </div>
+        <button class="btn btn-mari" id="giveBtn" type="button">Give $50</button>
+        <p class="give-msg" id="giveMsg" role="status" hidden>Online giving gets connected when we build the live site.</p>
+        <span class="need">Needed from you: giving provider (Tithe.ly, Givebutter or Stripe) and 501(c)(3) status</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="/assets/otv-logo-reverse.png" alt="On the Verge Enrichment">
+        <p style="margin-top:1rem;max-width:34ch;opacity:.85">A faith-rooted enrichment ministry helping people step boldly into their next season.</p>
+      </div>
+      <div>
+        <p class="footer-h">Explore</p>
+        <ul><li><a href="#about">About KD</a></li><li><a href="#programs">Programs</a></li><li><a href="#events">Events</a></li><li><a href="#give">Give</a></li></ul>
+      </div>
+      <div>
+        <p class="footer-h">Reach us</p>
+        <ul><li style="user-select:all;overflow-wrap:anywhere">kd@otvenrichment.com</li><li><a href="#connect">Send a note</a></li></ul>
+      </div>
+    </div>
+    <div class="small"><span>© 2026 On the Verge Enrichment</span><span>Isaiah 43:19</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  // mobile menu
+  var nav=document.getElementById('nav'),mb=document.getElementById('menuBtn');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu'});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menu'}});
+
+  // program buttons preselect interest
+  document.querySelectorAll('[data-interest]').forEach(function(a){a.addEventListener('click',function(){var s=document.getElementById('cf-interest');for(var i=0;i<s.options.length;i++){if(s.options[i].text===a.dataset.interest)s.selectedIndex=i}})});
+
+  // event plans
+  document.querySelectorAll('.plan').forEach(function(b){
+    if(store.get('otv-plan-'+b.dataset.id)==='1'){b.setAttribute('aria-pressed','true');b.textContent='In my plans'}
+    b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.textContent=on?'In my plans':'Add to my plans';store.set('otv-plan-'+b.dataset.id,on?'1':'0')});
+  });
+
+  // carousel
+  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=document.getElementById('dots'),i=0,timer=null;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  slides.forEach(function(s,n){var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Show story '+(n+1));d.addEventListener('click',function(){go(n);restart()});dots.appendChild(d)});
+  function go(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('on',k===i)});[].forEach.call(dots.children,function(d,k){d.setAttribute('aria-current',k===i)})}
+  function restart(){clearInterval(timer);if(!reduce)timer=setInterval(function(){go(i+1)},7000)}
+  document.getElementById('prev').addEventListener('click',function(){go(i-1);restart()});
+  document.getElementById('next').addEventListener('click',function(){go(i+1);restart()});
+  var car=document.getElementById('carousel'),sx=null;
+  car.addEventListener('mouseenter',function(){clearInterval(timer)});car.addEventListener('mouseleave',restart);
+  car.addEventListener('pointerdown',function(e){sx=e.clientX});
+  car.addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;if(Math.abs(dx)>50){go(i+(dx<0?1:-1));restart()}sx=null});
+  go(0);restart();
+
+  // copy email
+  var cb=document.getElementById('copyBtn');
+  cb.addEventListener('click',function(){var t=document.getElementById('email').textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected'}
+    try{navigator.clipboard.writeText(t).then(function(){cb.textContent='Copied'},sel)}catch(e){sel()}
+    setTimeout(function(){cb.textContent='Copy'},2200)});
+
+  // form
+  document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('formMsg').hidden=false});
+
+  // give chips
+  var chips=[].slice.call(document.querySelectorAll('.chip')),gb=document.getElementById('giveBtn');
+  chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.setAttribute('aria-pressed',x===c)});gb.textContent=c.textContent==='Other'?'Give a custom amount':'Give '+c.textContent})});
+  gb.addEventListener('click',function(){document.getElementById('giveMsg').hidden=false});
+})();
+</script>
+
+<a class="otv-back" href="/" aria-label="Back to all style options"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z" fill="#D9B465"/></svg>All styles</a>
+</body>
+</html>
