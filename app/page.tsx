@@ -116,7 +116,7 @@ export default function Home() {
             </a>
           </div>
           <a className="brand-art" href="/brand" aria-label="Open the brand guide">
-            <Image src="/assets/otv-mark-reverse.png" alt="" width={520} height={364} />
+            <Image src="/assets/otv-mark-reverse.png" alt="" width={520} height={364} loading="eager" />
             <div className="chips">
               {["#13303E", "#1E4C63", "#BC9045", "#D9B465", "#F6F3EC"].map((c) => (
                 <span key={c} style={{ background: c }}>
@@ -133,16 +133,22 @@ export default function Home() {
           <h2>What happens next</h2>
           <ol>
             <li>
-              <b>Pick your favorite.</b> Tell Matthew which direction feels right. You can mix in a detail you love
+              <p>
+                <b>Pick your favorite.</b> Tell Matthew which direction feels right. You can mix in a detail you love
               from another.
+              </p>
             </li>
             <li>
-              <b>Send your pieces.</b> Your bio and portrait, mission, programs, upcoming events and a handful of
+              <p>
+                <b>Send your pieces.</b> Your bio and portrait, mission, programs, upcoming events and a handful of
               photos from real gatherings. The dashed gold tags on each page show what we still need.
+              </p>
             </li>
             <li>
-              <b>We build it for real.</b> Your one-page site goes live on otvenrichment.com, fast on every phone
+              <p>
+                <b>We build it for real.</b> Your one-page site goes live on otvenrichment.com, fast on every phone
               and ready to grow with the ministry.
+              </p>
             </li>
           </ol>
         </div>

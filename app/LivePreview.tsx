@@ -29,6 +29,13 @@ export default function LivePreview({ src, title, device }: { src: string; title
           title={title}
           tabIndex={-1}
           loading="lazy"
+          onLoad={(e) => {
+            // Match the preview to the chooser's current light or dark mode.
+            const mode = document.documentElement.getAttribute("data-theme");
+            try {
+              if (mode) e.currentTarget.contentDocument?.documentElement.setAttribute("data-theme", mode);
+            } catch {}
+          }}
           style={{
             width: frameWidth,
             height: Math.ceil(boxHeight / scale),
