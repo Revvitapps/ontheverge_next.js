@@ -7,6 +7,8 @@ export type StyleOption = {
   swatches: string[];
   ground: string;
   ink: string;
+  groundLight: string;
+  inkLight: string;
 };
 
 export const styleOptions: StyleOption[] = [
@@ -20,6 +22,8 @@ export const styleOptions: StyleOption[] = [
     swatches: ["#0B1F29", "#13303E", "#BC9045", "#F1CD79"],
     ground: "#0B1F29",
     ink: "#F6F3EC",
+    groundLight: "#F3EEE4",
+    inkLight: "#13303E",
   },
   {
     slug: "joyful",
@@ -31,6 +35,8 @@ export const styleOptions: StyleOption[] = [
     swatches: ["#4A1F4F", "#E9A23B", "#C4553A", "#13303E"],
     ground: "#4A1F4F",
     ink: "#FFF7EC",
+    groundLight: "#FFF1DE",
+    inkLight: "#4A1F4F",
   },
   {
     slug: "horizon",
@@ -40,7 +46,9 @@ export const styleOptions: StyleOption[] = [
     description:
       "Clean white space, soft teal and a single gold star that rises over the horizon as you scroll. Calm, fresh and contemporary.",
     swatches: ["#F8FAFA", "#E7EEF0", "#1E4C63", "#BC9045"],
-    ground: "#E7EEF0",
-    ink: "#13303E",
+    ground: "#102A36",
+    ink: "#EEF3F4",
+    groundLight: "#EEF3F4",
+    inkLight: "#13303E",
   },
 ];

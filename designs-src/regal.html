@@ -29,7 +29,7 @@ body{background:var(--ink);color:var(--ivory);font-family:var(--f-body);font-wei
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
 img{max-width:100%;display:block}
 a{color:inherit}
-::selection{background:var(--gold);color:var(--ink)}
+::selection{background:var(--gold);color:#0B1F29}
 :focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:2px}
 
 .wrap{max-width:1320px;margin-inline:auto;padding-left:var(--gut);padding-right:var(--gut-r)}
@@ -94,7 +94,7 @@ em.gilt,.gilt{font-style:italic;background:linear-gradient(100deg,var(--gold) 0%
 .hero h1 .l2{display:block;padding-left:clamp(0rem,6vw,4.5rem)}
 .ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:.4rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;font-family:var(--f-caps);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:1.05rem 1.6rem;border:1px solid var(--gold);cursor:pointer;transition:background .3s,color .3s,box-shadow .3s;min-height:48px}
-.btn-gold{background:linear-gradient(120deg,var(--gold) 0%,var(--gold-l) 55%,var(--gold) 100%);color:var(--ink);font-weight:600}
+.btn-gold{background:linear-gradient(120deg,#BC9045 0%,#D9B465 55%,#BC9045 100%);color:#0B1F29;font-weight:600}
 .btn-gold:hover{box-shadow:0 0 0 4px rgba(241,205,121,.16),0 12px 40px -12px rgba(241,205,121,.55)}
 .btn-ghost{background:transparent;color:var(--ivory)}
 .btn-ghost:hover{background:rgba(188,144,69,.12)}
@@ -126,10 +126,10 @@ em.gilt,.gilt{font-style:italic;background:linear-gradient(100deg,var(--gold) 0%
 .ph{position:relative;background:
   radial-gradient(circle at 1px 1px,rgba(241,205,121,.22) 1px,transparent 1.6px) 0 0/22px 22px,
   radial-gradient(80% 60% at 30% 20%,rgba(30,76,99,.95),rgba(19,48,62,.9) 55%,rgba(11,31,41,1));
-  display:flex;flex-direction:column;justify-content:flex-end;gap:.6rem;padding:clamp(1rem,3vw,1.6rem);color:var(--ivory)}
+  display:flex;flex-direction:column;justify-content:flex-end;gap:.6rem;padding:clamp(1rem,3vw,1.6rem);color:#F6F3EC}
 .ph::before{content:"";position:absolute;left:50%;top:42%;width:54px;height:54px;transform:translate(-50%,-50%);background:linear-gradient(135deg,var(--gold-l),var(--gold));opacity:.55;clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%)}
-.ph .tag{align-self:flex-start;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold-l);padding:.3em .8em;position:relative;z-index:1}
-.ph .cap{font-family:var(--f-display);font-style:italic;font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.3;color:var(--ivory);position:relative;z-index:1;max-width:24em}
+.ph .tag{align-self:flex-start;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#0B1F29;background:#D9B465;padding:.3em .8em;position:relative;z-index:1}
+.ph .cap{font-family:var(--f-display);font-style:italic;font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.3;color:#F6F3EC;position:relative;z-index:1;max-width:24em}
 .arch.ph{padding-bottom:clamp(2rem,6vw,3.2rem);padding-inline:clamp(1.6rem,6vw,2.6rem);text-align:center;align-items:center}
 .arch.ph .tag{align-self:center}
 
@@ -270,7 +270,7 @@ form{display:grid;gap:1.4rem;min-width:0}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:.6rem}
 .chip{min-width:92px;min-height:52px;background:transparent;border:1px solid var(--line);color:var(--ivory);font-family:var(--f-display);font-size:1.5rem;font-weight:500;padding:.4rem 1.3rem;cursor:pointer;transition:all .25s;font-variant-numeric:tabular-nums}
 .chip:hover{border-color:var(--gold)}
-.chip[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold);box-shadow:0 10px 40px -14px rgba(241,205,121,.7)}
+.chip[aria-pressed="true"]{background:var(--gold);color:#0B1F29;border-color:var(--gold);box-shadow:0 10px 40px -14px rgba(241,205,121,.7)}
 .give-note{min-height:1.6em;color:var(--glow);font-family:var(--f-display);font-style:italic;font-size:1.15rem}
 
 /* footer */
@@ -284,6 +284,30 @@ form{display:grid;gap:1.4rem;min-width:0}
 @media (min-width:900px){.foot .wrap{grid-template-columns:1fr 1fr;align-items:end}.foot nav{justify-content:flex-end}}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* Daylight edition: the same layout on warm paper. Navy carries the text, a deeper gold carries the accents, photo frames stay night-toned. */
+:root[data-theme="light"]{
+  --ink:#FFFDF8; --navy:#F3EEE4; --teal:#DCE6E8; --ivory:#13303E; --muted:#4A6270; --gold-l:#7E5B22; --glow:#7E5B22;
+  --line:rgba(126,91,34,.38); --line-soft:rgba(19,48,62,.12); color-scheme:light;
+}
+.day{display:none}
+:root[data-theme="light"] img.rev{display:none}
+:root[data-theme="light"] img.day{display:block}
+:root[data-theme="light"] .ribbon,:root[data-theme="light"] .foot{background:#ECE5D7}
+:root[data-theme="light"] .site-head{background:rgba(255,253,248,.88)}
+:root[data-theme="light"] .hero{background:
+  radial-gradient(60% 70% at 82% 30%,rgba(30,76,99,.16) 0%,rgba(30,76,99,0) 70%),
+  radial-gradient(40% 40% at 88% 12%,rgba(241,205,121,.35) 0%,rgba(241,205,121,0) 70%),
+  linear-gradient(180deg,#FFFDF8 0%,#F3EEE4 100%)}
+:root[data-theme="light"] .need{background:rgba(255,253,248,.75)}
+:root[data-theme="light"] .program{background:rgba(255,253,248,.7)}
+:root[data-theme="light"] .oos li{border-top-color:rgba(126,91,34,.35)}
+:root[data-theme="light"] .oos .leader{border-bottom-color:rgba(126,91,34,.5)}
+:root[data-theme="light"] .socials span{border-color:rgba(19,48,62,.3)}
+:root[data-theme="light"] .field input,:root[data-theme="light"] .field textarea,:root[data-theme="light"] .field select{border-bottom-color:rgba(19,48,62,.35)}
+:root[data-theme="light"] .give{background:radial-gradient(50% 80% at 50% 120%,rgba(241,205,121,.45),rgba(188,144,69,.1) 50%,rgba(255,253,248,0) 75%),#FFFDF8}
+:root[data-theme="light"] em.gilt,:root[data-theme="light"] .gilt{background-image:linear-gradient(100deg,#7E5B22 0%,#BC9045 45%,#9A7230 60%,#7E5B22 100%)}
+:root[data-theme="light"] .chip[aria-pressed="true"]{box-shadow:0 10px 30px -14px rgba(126,91,34,.6)}
 </style>
 
 <div class="ribbon"><div class="wrap"><span>Style option <b>1 of 3</b></span><span aria-hidden="true">·</span><span>Regal</span><span aria-hidden="true">·</span><span>Prepared by Revvit</span></div></div>
@@ -291,7 +315,7 @@ form{display:grid;gap:1.4rem;min-width:0}
 <header class="site-head" id="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="On the Verge Enrichment home">
-      <img src="assets/otv-mark-reverse.png" alt="" width="54" height="38">
+      <img class="rev" src="assets/otv-mark-reverse.png" alt="" width="54" height="38"><img class="day" src="assets/otv-mark.png" alt="" width="54" height="38">
       <span>On the Verge<small>Enrichment</small></span>
     </a>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav"><i></i>Menu</button>
@@ -310,7 +334,7 @@ form{display:grid;gap:1.4rem;min-width:0}
   <section class="hero" aria-labelledby="heroTitle">
     <div class="wrap">
       <div class="hero-copy">
-        <img class="hero-mark" src="assets/otv-mark-reverse.png" alt="On the Verge Enrichment monogram" width="140" height="98">
+        <img class="hero-mark rev" src="assets/otv-mark-reverse.png" alt="On the Verge Enrichment monogram" width="140" height="98"><img class="hero-mark day" src="assets/otv-mark.png" alt="" width="140" height="98">
         <p class="caps">A faith-rooted enrichment ministry</p>
         <h1 id="heroTitle">You are on <span class="l2">the <em class="gilt">verge.</em></span></h1>
         <p class="lede">On the Verge Enrichment walks with women, families and young people through teaching, mentoring and community, so the next season finds you rooted, ready and whole.</p>
@@ -434,7 +458,7 @@ form{display:grid;gap:1.4rem;min-width:0}
       <div class="program">
         <div class="program-in">
           <div class="program-top">
-            <img src="assets/otv-mark-reverse.png" alt="" width="64" height="45">
+            <img class="rev" src="assets/otv-mark-reverse.png" alt="" width="64" height="45"><img class="day" src="assets/otv-mark.png" alt="" width="64" height="45">
             <p class="caps">Order of Gatherings</p>
             <h2 id="gatherTitle">Winter <em class="gilt">2026 into 2027</em></h2>
             <div class="flourish" aria-hidden="true"><span></span><i></i><span></span></div>
@@ -545,7 +569,7 @@ form{display:grid;gap:1.4rem;min-width:0}
 
 <footer class="foot">
   <div class="wrap">
-    <img src="assets/otv-logo-reverse.png" alt="On the Verge Enrichment" width="320" height="200">
+    <img class="rev" src="assets/otv-logo-reverse.png" alt="On the Verge Enrichment" width="320" height="200"><img class="day" src="assets/otv-logo.png" alt="" width="320" height="200">
     <nav aria-label="Footer">
       <a href="#about">About</a><a href="#offerings">Offerings</a><a href="#gatherings">Gatherings</a><a href="#connect">Connect</a><a href="#give">Give</a>
     </nav>

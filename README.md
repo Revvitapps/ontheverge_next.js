@@ -12,6 +12,8 @@ Design preview and future home of the On the Verge Enrichment website (otvenrich
 | `/horizon` | Style option 3: light, airy, modern |
 | `/brand` | Brand guide: logo rules, colors, type, imagery, voice, tokens |
 
+Every page has a Light / Dark switch (bottom right). The choice is saved in the browser and carries across pages.
+
 The four design comps are authored in `designs-src/` and wrapped into full pages in `public/designs/`
 by `scripts/build-designs.mjs`, which runs before every `dev` and `build`. `COPY-DECK.md` holds the
 placeholder copy and the list of what we still need from the client.

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import LivePreview from "./LivePreview";
 import { styleOptions } from "./styles";
+import ThemeToggle from "./ThemeToggle";
 
 const Star = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 40 40" aria-hidden="true">
@@ -19,8 +20,16 @@ export default function Home() {
         <div className="gutter hero-inner">
           <p className="eyebrow">Website design directions · Prepared for KD</p>
           <Image
-            className="hero-logo"
+            className="hero-logo logo-night"
             src="/assets/otv-logo-reverse.png"
+            alt="On the Verge Enrichment"
+            width={1000}
+            height={624}
+            priority
+          />
+          <Image
+            className="hero-logo logo-day"
+            src="/assets/otv-logo.png"
             alt="On the Verge Enrichment"
             width={1000}
             height={624}
@@ -52,7 +61,12 @@ export default function Home() {
           key={o.slug}
           id={o.slug}
           className={`option ${i % 2 ? "flip" : ""}`}
-          style={{ ["--ground" as string]: o.ground, ["--ink" as string]: o.ink }}
+          style={{
+            ["--band-dark" as string]: o.ground,
+            ["--band-ink-dark" as string]: o.ink,
+            ["--band-light" as string]: o.groundLight,
+            ["--band-ink-light" as string]: o.inkLight,
+          }}
         >
           <div className="gutter option-inner">
             <div className="option-copy">
@@ -140,6 +154,7 @@ export default function Home() {
           <span>Prepared by Revvit · Photos and copy are placeholders</span>
         </div>
       </footer>
+      <ThemeToggle />
     </main>
   );
 }
